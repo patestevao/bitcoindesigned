@@ -70,3 +70,5 @@ staticfiles/
 
 .cache/
 
+*.min.js
+*.min.css
