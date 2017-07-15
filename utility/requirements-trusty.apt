@@ -9,9 +9,6 @@ python3-dev
 ##Pillow, pylibmc
 zlib1g-dev
 
-##Postgresql and psycopg2 dependencies
-libpq-dev
-
 ##Pillow dependencies
 libtiff4-dev
 libjpeg8-dev

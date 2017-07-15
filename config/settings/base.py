@@ -109,7 +109,10 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///bitcoin_designed'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'data-dev.sqlite'
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
