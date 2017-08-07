@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta property="og:type" content="website">
+  	<meta property="og:image" content="">
+  	<meta property="og:description" content="">
+  	<!-- /twitter card tags -->
+  	<meta name="twitter:card" content="summary">
+  	<meta name="twitter:description" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.ico' %}">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -14,93 +22,78 @@
     <![endif]-->
 
     {% block css %}
-    <!-- Latest compiled and minified Bootstrap 4 Alpha 4 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
     <!-- Your stuff: Third-party CSS libraries go here -->
-    
+    <link href="{% static 'css/foundation.css' %}" rel="stylesheet">
     <!-- This file stores project-specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    
+
     {% endblock %}
 
   </head>
 
   <body>
-
-    <div class="m-b-1">
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Bitcoin designed</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
-
-    </div>
-
-    <div class="container">
-
-      {% if messages %}
-          {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-          {% endfor %}
-      {% endif %}
-
+      {# {% if messages %} #}
+          {# {% for message in messages %} #}
+              {# <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div> #}
+          {# {% endfor %} #}
+      {# {% endif %} #}
+      <div id="top-div">
+		<nav>
+			<div class="full-width row">
+				<div id="nav-left" class="small-12 large-6 medium-5 columns">
+					<a href="{% url 'home' %}" id="top-home-link">
+						<h1><img id="logo" src="{% static 'images/logo.svg' %}" alt="bitcoin designed"></h1>
+					</a>
+				</div>
+				<div id="nav-right" class="small-12 large-6 medium-7 columns">
+					<ul id="menu-list">
+            {% url 'home' as home_url %}
+						<li class="menu-item{% if request.path == home_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'home' %}">Home</a></li>
+            {% url 'about' as about_url %}
+            <li class="menu-item{% if request.path == about_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'about' %}">About Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		{# {% if request.path == 'home' %} #}
+		{# <div id="cta-section" class="row align-center"> #}
+			{# <div class="large-8 medium-10 small-12 columns"> #}
+				{# <h2 class="cta-copy">Present Your Business or Project in a Beautiful and Unique Way!</h2> #}
+			{# </div> #}
+		{# </div> #}
+		{# {% endif %} #}
+		{% if request.path == 'home' %}
+		<div class="row full-width">
+			<div id="i18n-container" class="small-12 columns">
+				<div class="i18n-switch">
+					{# <a class="i18n-link {% if lang == 'en' %}i18n-selected{% endif %}" href="/en{% if request.path.find(lang) == 1 %}{{ request.path.replace(lang+'/', '', 1) }}{% else %}{{ request.path }}{% endif %}">en</a> #}
+          <a class="i18n-link i18n-selected" href="">en</a>
+					<span> / </span>
+					{# <a class="i18n-link {% if lang == 'pt' %}i18n-selected{% endif %}" href="/pt{% if request.path.find(lang) == 1 %}{{ request.path.replace(lang+'/', '', 1) }}{% else %}{{ request.path }}{% endif %}">pt</a> #}
+          <a class="i18n-link" href="#">pt</a>
+					<span> / </span>
+					{# <a class="i18n-link {% if lang == 'es' %}i18n-selected{% endif %}" href="/es{% if request.path.find(lang) == 1 %}{{ request.path.replace(lang+'/', '', 1) }}{% else %}{{request.path}}{% endif %}">es</a> #}
+          <a class="i18n-link" href="#">es</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
-
-    </div> <!-- /container -->
-
-    {% block modal %}{% endblock modal %}
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+  <footer>
+    This project is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  </footer>
+    <!-- Le javascript -->
     {% block javascript %}
-      <!-- Required by Bootstrap v4 Alpha 4 -->
-      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
       <!-- Your stuff: Third-party javascript libraries go here -->
-
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <!-- place project specific Javascript in this file -->
-      
+
       <script src="{% static 'js/project.js' %}"></script>
-      
+
 
     {% endblock javascript %}
   </body>
 </html>
- 
