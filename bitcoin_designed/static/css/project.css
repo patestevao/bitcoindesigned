@@ -98,7 +98,7 @@ a:hover {
   z-index: -1;
   top: 0;
   left: 0;
-  height: auto;
+  height: 13em;
   width: 100%;
 }
 
@@ -111,7 +111,8 @@ a:hover {
   stroke-dasharray: 80px;
   stroke-dashoffset: 80px;
   animation-name: animate;
-  animation-duration: 2s;
+  animation-duration: 1000ms;
+  animation-delay: 200ms;
   animation-fill-mode: forwards;
 }
 
@@ -119,8 +120,8 @@ a:hover {
   stroke-dasharray: 80px;
   stroke-dashoffset: 80px;
   animation-name: animate;
-  animation-duration: 2s;
-  animation-delay: 2s;
+  animation-duration: 1000ms;
+  animation-delay: 1000ms;
   animation-fill-mode: forwards;
 }
 
@@ -128,8 +129,8 @@ a:hover {
   stroke-dasharray: 80px;
   stroke-dashoffset: 80px;
   animation-name: animate;
-  animation-duration: 2s;
-  animation-delay: 4s;
+  animation-duration: 1000ms;
+  animation-delay: 2000ms;
   animation-fill-mode: forwards;
 }
 
@@ -141,8 +142,8 @@ a:hover {
 #fourth-squares rect:nth-child(10), #fourth-squares rect:nth-child(13), #fourth-squares rect:nth-child(21) {
   opacity: 0;
   animation-name: show;
-  animation-duration: 1s;
-  animation-delay: 6s;
+  animation-duration: 500ms;
+  animation-delay: 3000ms;
   animation-fill-mode: forwards;
 }
 
@@ -150,16 +151,16 @@ a:hover {
 #fourth-squares rect:nth-child(11) {
   opacity: 0;
   animation-name: show;
-  animation-duration: 1s;
-  animation-delay: 7s;
+  animation-duration: 500ms;
+  animation-delay: 4000ms;
   animation-fill-mode: forwards;
 }
 
 #fourth-squares rect:nth-child(3), #fourth-squares rect:nth-child(7),  #fourth-squares rect:nth-child(16)  {
   opacity: 0;
   animation-name: show;
-  animation-duration: 1s;
-  animation-delay: 8s;
+  animation-duration: 500ms;
+  animation-delay: 4500ms;
   animation-fill-mode: forwards;
 }
 
@@ -167,17 +168,17 @@ a:hover {
 #fourth-squares rect:nth-child(15), #fourth-squares rect:nth-child(22) {
   opacity: 0;
   animation-name: show;
-  animation-duration: 1s;
-  animation-delay: 9s;
+  animation-duration: 500ms;
+  animation-delay: 5000ms;
   animation-fill-mode: forwards;
 }
 
 #fourth-squares rect:nth-child(9), #fourth-squares rect:nth-child(12), #fourth-squares rect:nth-child(20),
-#fourth-squares rect:nth-child(0){
+#fourth-squares rect:first-child{
   opacity: 0;
   animation-name: show;
-  animation-duration: 1s;
-  animation-delay: 10s;
+  animation-duration: 500ms;
+  animation-delay: 5500ms;
   animation-fill-mode: forwards;
 }
 
@@ -196,6 +197,7 @@ a:hover {
 #top-div {
 	/*background-color: #6460bf;*/
 	min-width: 100%;
+  height: 13em;
 	padding-top: 1em;
 	padding-bottom: 2em;
   padding-top: 1.5em;
@@ -362,13 +364,20 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-	#top-div {
-		background: linear-gradient(135deg, #6460bf, #617BD6);
-		-webkit-background: linear-gradient(135deg, #6460bf, #617BD6);
-		-moz-background: linear-gradient(135deg, #6460bf, #617BD6);
-		-o-background: linear-gradient(135deg, #6460bf, #617BD6);
-    padding-bottom: 1.4em;
-	}
+  #top-div {
+    height: 11em;
+  }
+
+  #svg-container {
+    height: 11em;
+  }
+  #fourth-squares rect:nth-child(1n) {
+    opacity: 0;
+    animation-name: show;
+    animation-duration: 500ms;
+    animation-delay: 3000ms;
+    animation-fill-mode: forwards;
+  }
 
 	#logo {
 		text-align: center
@@ -376,7 +385,7 @@ a:hover {
 
 	#menu-list {
 		text-align: center;
-		margin-top: 1.4em;
+		margin-top: 1.8em;
 	}
 
 	li.menu-item:nth-child(3) {
