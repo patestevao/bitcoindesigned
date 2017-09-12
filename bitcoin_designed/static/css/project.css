@@ -92,16 +92,112 @@ a:hover {
 }
 
 /*top section styles*/
+#svg-container {
+  background-color: #6460bf;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+}
+
+#svg-container svg {
+  height: 100%;
+  width: 100%;
+}
+
+#first-squares {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation-name: animate;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+#second-squares {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation-name: animate;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+#third-squares {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation-name: animate;
+  animation-duration: 2s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+#fourth-squares rect {
+  opacity: 0;
+}
+
+#fourth-squares rect:nth-child(1), #fourth-squares rect:nth-child(5), #fourth-squares rect:nth-child(18),
+#fourth-squares rect:nth-child(10), #fourth-squares rect:nth-child(13), #fourth-squares rect:nth-child(21) {
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 6s;
+  animation-fill-mode: forwards;
+}
+
+#fourth-squares rect:nth-child(2), #fourth-squares rect:nth-child(6), #fourth-squares rect:nth-child(17),
+#fourth-squares rect:nth-child(11) {
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 7s;
+  animation-fill-mode: forwards;
+}
+
+#fourth-squares rect:nth-child(3), #fourth-squares rect:nth-child(7),  #fourth-squares rect:nth-child(16)  {
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 8s;
+  animation-fill-mode: forwards;
+}
+
+#fourth-squares rect:nth-child(4), #fourth-squares rect:nth-child(8), #fourth-squares rect:nth-child(19),
+#fourth-squares rect:nth-child(15), #fourth-squares rect:nth-child(22) {
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 9s;
+  animation-fill-mode: forwards;
+}
+
+#fourth-squares rect:nth-child(9), #fourth-squares rect:nth-child(12), #fourth-squares rect:nth-child(20),
+#fourth-squares rect:nth-child(0){
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 10s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  to {
+    opacity: 0.1;
+  }
+}
+
+@keyframes animate {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
 #top-div {
-	background-color: #6460bf;
+	/*background-color: #6460bf;*/
 	min-width: 100%;
 	padding-top: 1em;
 	padding-bottom: 2em;
-	background: linear-gradient(to right, #6460bf, #617BD6);
-	-webkit-background: linear-gradient(to right, #6460bf, #617BD6);
-	-moz-background: linear-gradient(to right, #6460bf, #617BD6);
-	-o-background: linear-gradient(to right, #6460bf, #617BD6);
   padding-top: 1.5em;
 }
 
