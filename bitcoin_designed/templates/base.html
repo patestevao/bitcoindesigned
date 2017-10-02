@@ -1,4 +1,6 @@
 {% load staticfiles i18n %}<!DOCTYPE html>
+{% url 'public:home' as home_url %}
+{% url 'public:about' as about_url %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -41,16 +43,14 @@
 		<nav>
 			<div class="full-width row">
 				<div id="nav-left" class="small-12 large-6 medium-5 columns">
-					<a href="{% url 'home' %}" id="top-home-link">
+					<a href="{% url 'public:home' %}" id="top-home-link">
 						<h1><img id="logo" src="{% static 'images/logo.svg' %}" alt="bitcoin designed"></h1>
 					</a>
 				</div>
 				<div id="nav-right" class="small-12 large-6 medium-7 columns">
 					<ul id="menu-list">
-            {% url 'home' as home_url %}
-						<li class="menu-item{% if request.path == home_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'home' %}">Home</a></li>
-            {% url 'about' as about_url %}
-            <li class="menu-item{% if request.path == about_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'about' %}">About Us</a></li>
+						<li class="menu-item{% if request.path == home_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'public:home' %}">Home</a></li>
+            <li class="menu-item{% if request.path == about_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'public:about' %}">About Us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -62,11 +62,10 @@
 			{# </div> #}
 		{# </div> #}
 		{# {% endif %} #}
-		{% if request.path == 'home' %}
+		{% if request.path == home_url %}
 		<div class="row full-width">
 			<div id="i18n-container" class="small-12 columns">
 				<div class="i18n-switch">
-					{# <a class="i18n-link {% if lang == 'en' %}i18n-selected{% endif %}" href="/en{% if request.path.find(lang) == 1 %}{{ request.path.replace(lang+'/', '', 1) }}{% else %}{{ request.path }}{% endif %}">en</a> #}
           <a class="i18n-link i18n-selected" href="">en</a>
 					<span> / </span>
 					{# <a class="i18n-link {% if lang == 'pt' %}i18n-selected{% endif %}" href="/pt{% if request.path.find(lang) == 1 %}{{ request.path.replace(lang+'/', '', 1) }}{% else %}{{ request.path }}{% endif %}">pt</a> #}
