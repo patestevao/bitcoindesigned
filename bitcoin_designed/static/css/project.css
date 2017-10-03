@@ -138,7 +138,7 @@ a:hover {
   opacity: 0;
 }
 
-#fourth-squares rect:nth-child(1), #fourth-squares rect:nth-child(5), #fourth-squares rect:nth-child(18),
+/*#fourth-squares rect:nth-child(1), #fourth-squares rect:nth-child(5), #fourth-squares rect:nth-child(18),
 #fourth-squares rect:nth-child(10), #fourth-squares rect:nth-child(13), #fourth-squares rect:nth-child(21) {
   opacity: 0;
   animation-name: show;
@@ -180,7 +180,7 @@ a:hover {
   animation-duration: 500ms;
   animation-delay: 5000ms;
   animation-fill-mode: forwards;
-}
+}*/
 
 @keyframes show {
   to {
