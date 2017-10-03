@@ -20,6 +20,7 @@ class HomeListView(ListView):
 
 class InfographicDetailView(DetailView):
     model = Infographic
+    slug_field = 'slug'
     template_name = 'public/infographic.html'
 
 

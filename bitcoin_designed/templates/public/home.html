@@ -21,7 +21,7 @@
   {% for infographic in object_list %}
 	<div class="infographic-container small-12 medium-6 large-4 columns">
 		<div class="infographic-image-container">
-			<a class="infographic-sample-link" href="{% url 'infographic' %}">
+			<a class="infographic-sample-link" href="{% url 'public:infographic_detail' slug=infographic.slug %}">
 				<div class="overlay"></div>
         <img class="infographic-image" src="{{ infographic.medium_img.url }}" alt="">
 			</a>
