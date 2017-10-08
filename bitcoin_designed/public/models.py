@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 # Create your models here.
@@ -33,8 +35,11 @@ class Infographic(models.Model):
 
     pub_date = models.DateField(
         "Publication date",
-        auto_now_add=True,
-        blank=True,
+        default=timezone.now,
+    )
+    last_update_date = models.DateField(
+        "Last update date",
+        default=timezone.now,
     )
     active = models.BooleanField(
         "Active",
@@ -88,6 +93,10 @@ class Infographic(models.Model):
     class Meta:
         ordering = ('pub_date', 'title')
 
+@receiver(post_save, sender=Infographic, dispatch_uid='update_infographic')
+def update_infographic(sender, instance, **kwargs):
+    instance.last_update_date = timezone.now()
+    instance.save()
 
 class InfographicURL(models.Model):
 
