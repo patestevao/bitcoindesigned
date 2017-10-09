@@ -98,7 +98,7 @@ a:hover {
   z-index: -1;
   top: 0;
   left: 0;
-  height: 13em;
+  height: 12em;
   width: 100%;
 }
 
@@ -134,54 +134,6 @@ a:hover {
   animation-fill-mode: forwards;
 }
 
-#fourth-squares rect {
-  opacity: 0;
-}
-
-/*#fourth-squares rect:nth-child(1), #fourth-squares rect:nth-child(5), #fourth-squares rect:nth-child(18),
-#fourth-squares rect:nth-child(10), #fourth-squares rect:nth-child(13), #fourth-squares rect:nth-child(21) {
-  opacity: 0;
-  animation-name: show;
-  animation-duration: 500ms;
-  animation-delay: 3000ms;
-  animation-fill-mode: forwards;
-}
-
-#fourth-squares rect:nth-child(2), #fourth-squares rect:nth-child(6), #fourth-squares rect:nth-child(17),
-#fourth-squares rect:nth-child(11) {
-  opacity: 0;
-  animation-name: show;
-  animation-duration: 500ms;
-  animation-delay: 3500ms;
-  animation-fill-mode: forwards;
-}
-
-#fourth-squares rect:nth-child(3), #fourth-squares rect:nth-child(7),  #fourth-squares rect:nth-child(16)  {
-  opacity: 0;
-  animation-name: show;
-  animation-duration: 500ms;
-  animation-delay: 4000ms;
-  animation-fill-mode: forwards;
-}
-
-#fourth-squares rect:nth-child(4), #fourth-squares rect:nth-child(8), #fourth-squares rect:nth-child(19),
-#fourth-squares rect:nth-child(15), #fourth-squares rect:nth-child(22) {
-  opacity: 0;
-  animation-name: show;
-  animation-duration: 500ms;
-  animation-delay: 4500ms;
-  animation-fill-mode: forwards;
-}
-
-#fourth-squares rect:nth-child(9), #fourth-squares rect:nth-child(12), #fourth-squares rect:nth-child(20),
-#fourth-squares rect:first-child{
-  opacity: 0;
-  animation-name: show;
-  animation-duration: 500ms;
-  animation-delay: 5000ms;
-  animation-fill-mode: forwards;
-}*/
-
 @keyframes show {
   to {
     opacity: 0.1;
@@ -197,10 +149,9 @@ a:hover {
 #top-div {
 	/*background-color: #6460bf;*/
 	min-width: 100%;
-  height: 13em;
-	padding-top: 1em;
+  height: 12em;
 	padding-bottom: 2em;
-  padding-top: 1.5em;
+  padding-top: 2em;
 }
 
 #nav-left {
@@ -214,7 +165,7 @@ a:hover {
 }
 
 #logo {
-	max-width: 10em;
+	max-width: 8.5em;
 	display: inline-block;
 	vertical-align: middle;
 }
