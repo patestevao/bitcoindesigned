@@ -8,6 +8,7 @@
   </div>
 </div>
 <div class="row align-center">
+  {% if next_infographic %}
   <div class="prev-container medium-6 columns">
     <div class="row align-middle">
       <div class="prev-arrow-column shrink columns">
@@ -16,17 +17,19 @@
         </a>
       </div>
       <div class="columns">
-        <a href="" class="prev-link">
-          <h3 class="prev-title">What is Bitcoin? - The network</h3>
+        <a href="{% url 'public:infographic_detail' slug=next_infographic.slug %}" class="prev-link">
+          <h3 class="prev-title">{{ next_infographic.title }}</h3>
         </a>
       </div>
     </div>
   </div>
+  {% endif %}
+  {% if prev_infographic %}
   <div class="next-container medium-6 columns">
     <div class="row align-middle">
       <div class="columns">
-        <a href="" class="next-link">
-          <h3 class="next-title">What does it really mean to have bitcoins?</h3>
+        <a href="{% url 'public:infographic_detail' slug=prev_infographic.slug %}" class="next-link">
+          <h3 class="next-title">{{ prev_infographic.title }}</h3>
         </a>
       </div>
       <div class="next-arrow-column shrink columns">
@@ -36,11 +39,12 @@
       </div>
     </div>
   </div>
+  {% endif %}
 </div>
 <div class="row align-center">
   <div class="full-infographic-outer-container small-12 columns">
     <div class="full-infographic-inner-container">
-      <img class="full-infographic-image" src="{% static 'images/sample2.png' %}" alt="">
+      <img class="full-infographic-image" src="{{ object.medium_img.url  }}" alt="">
     </div>
   </div>
 </div>
@@ -52,7 +56,9 @@
       {# <p class="infographic-date"><a class="post-infographic-link"href="#">Timestamped</a> on the Bitcoin blockchain using OpenTimestamps.</p> #}
     </div>
     <div class="separate-content-container">
-      <p class="infographic-text"><a class="post-infographic-link" href="">Download this infographic in high resolution.</a></p>
+      {% for infographic_url in object.infographicurl_set.all %}
+      <p class="infographic-text"><a class="post-infographic-link" href="{{ infographic_url.url }}">Download this infographic in high resolution. ({{ infographic_url.language.name }})</a></p>
+      {% endfor %}
       {# <p class="infographic-text"><a class="post-infographic-link" href="">Download the source file for this infographics (Adobe Illustrator format).</a></p> #}
     </div>
     {# <div class="separate-content-container"> #}

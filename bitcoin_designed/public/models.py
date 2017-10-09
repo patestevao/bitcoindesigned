@@ -48,14 +48,10 @@ class Infographic(models.Model):
     title = models.CharField(
         "Title",
         max_length=140,
-        blank=True,
-        null=True,
     )
     description = models.CharField(
         "Description",
         max_length=140,
-        blank=True,
-        null=True,
     )
     sponsored = models.BooleanField(
         "Sponsored",
@@ -67,20 +63,14 @@ class Infographic(models.Model):
     )
     slug = models.SlugField(
         "Slug",
-        blank=True,
-        null=True,
     )
     medium_img = models.ImageField(
         "Medium image",
         max_length=500,
-        blank=True,
-        null=True,
     )
     thumbnail_img = models.ImageField(
         "Thumbnail",
         max_length=500,
-        blank=True,
-        null=True,
     )
     tags = models.ManyToManyField('Tag')
 
@@ -90,13 +80,13 @@ class Infographic(models.Model):
     def __repr__(self):
         return "<Infographic: %s>" % self.title
 
+    def save(self, *args, **kwargs):
+        self.last_update_date = timezone.now()
+        super(Infographic, self).save(*args, **kwargs)
+
     class Meta:
         ordering = ('pub_date', 'title')
 
-@receiver(post_save, sender=Infographic, dispatch_uid='update_infographic')
-def update_infographic(sender, instance, **kwargs):
-    instance.last_update_date = timezone.now()
-    instance.save()
 
 class InfographicURL(models.Model):
 

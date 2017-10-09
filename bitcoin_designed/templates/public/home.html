@@ -23,7 +23,7 @@
 		<div class="infographic-image-container">
 			<a class="infographic-sample-link" href="{% url 'public:infographic_detail' slug=infographic.slug %}">
 				<div class="overlay"></div>
-        <img class="infographic-image" src="{{ infographic.medium_img.url }}" alt="">
+        <img class="infographic-image" src="{{ infographic.thumbnail_img.url }}" alt="">
 			</a>
 		</div>
 		<div class="title-container">
