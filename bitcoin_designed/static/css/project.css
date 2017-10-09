@@ -59,10 +59,15 @@ footer {
   text-align: center;
 }
 
+@media (max-width: 640px) {
+  footer {
+    font-size: 0.9em;
+  }
+}
+
 h1 {
 	margin: 0;
 }
-
 
 p {
   font-size: 1.1rem;
@@ -315,6 +320,10 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  #nav-left {
+    padding-left: 0;
+  }
+
   #top-div {
     height: 11em;
   }
@@ -337,6 +346,10 @@ a:hover {
 	#menu-list {
 		text-align: center;
 		margin-top: 1.8em;
+	}
+
+  li.menu-item:nth-child(1) {
+		margin-left: 0.8em;
 	}
 
 	li.menu-item:nth-child(3) {
@@ -575,69 +588,74 @@ a:hover {
 
 .infographic-title {
   font-size: 3em;
-  margin-top: 2em;
-  margin-bottom: 0;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
-.prev-container, .next-container {
+.newer-older-container {
+  margin-top: 2em;
+}
+
+.newer-container, .older-container {
   margin-top: 3em;
 }
 
-.prev-link, .next-link {
+.newer-link, .older-link {
   color: #666;
   /*padding: 1em 0;*/
 }
 
-.prev-arrow-column {
+.newer-arrow-column {
   padding-right: 0;
 }
 
-.next-arrow-column {
+.older-arrow-column {
   padding-left: 0;
 }
 
-.prev-link:hover, .next-link:hover {
+.newer-link:hover, .older-link:hover {
   color: #6460bf;
   background-color: transparent;
 }
 
-.prev-title, .next-title {
+.newer-title, .older-title {
   font-size: 1.2em;
+  font-weight: 300;
   /*max-width: 20em;*/
 }
 
-.prev-image, .next-image {
-  height: 20px;
-  margin-top: -4px;
+.newer-image, .older-image {
+  height: 16px;
+  margin-top: -1px;
 }
 
-.next-link {
+.older-link {
   text-align: right;
 }
 
-.prev-list li, .next-list li {
+.newer-list li, .older-list li {
   margin: 0;
   padding: 0;
   display: inline-block;
   vertical-align: middle
 }
 
-.next-link:hover .next-image, .next-link:focus .next-image{
-  animation-name: moveNextArrow;
+.older-link:hover .older-image, .older-link:focus .older-image{
+  animation-name: moveolderArrow;
   animation-duration: 400ms;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
 
-.prev-link:hover .prev-image, .prev-link:focus .prev-image {
-  animation-name: movePrevArrow;
+.newer-link:hover .newer-image, .newer-link:focus .newer-image {
+  animation-name: movenewerArrow;
   animation-duration: 400ms;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
 
 .full-infographic-outer-container {
-  margin-top: 3em;
+  margin-top: 2em;
   overflow: scroll;
   width: 100%;
   height: auto;
@@ -681,7 +699,7 @@ a:hover {
   padding-bottom: 1px;
 }
 
-@keyframes moveNextArrow {
+@keyframes moveolderArrow {
     0% {
      transform:translateX(0)
     }
@@ -699,7 +717,7 @@ a:hover {
    }
 }
 
-@keyframes movePrevArrow {
+@keyframes movenewerArrow {
     0% {
      transform:translateX(0)
     }
@@ -718,11 +736,11 @@ a:hover {
 }
 
 @media(max-width: 950px) {
-  .prev-title, .next-title {
+  .newer-title, .older-title {
     font-size: 1em;
   }
 
-  .prev-container, .next-container {
+  .newer-container, .older-container {
     margin-top: 2em;
   }
 
@@ -735,6 +753,7 @@ a:hover {
   .infographic-title {
     font-size: 1.8em;
     margin-top: 2em;
+    margin-bottom: 0;
   }
 
   /*.full-infographic-container {
@@ -743,7 +762,7 @@ a:hover {
 }
 
 @media (max-width: 500px){
-  .prev-title, .next-title {
+  .newer-title, .older-title {
     font-size: 0.9em;
   }
 }
@@ -753,7 +772,7 @@ a:hover {
     font-size: 1.4em;
   }
 
-  .prev-image, .next-image {
+  .newer-image, .older-image {
     padding: 0.9em;
     height: 3em;
     width: 3em;
@@ -761,11 +780,11 @@ a:hover {
     border-radius: 100%;
   }
 
-  .prev-title, .next-title {
+  .newer-title, .older-title {
     display: none;
   }
 
-  .prev-container, .next-container {
+  .newer-container, .older-container {
     margin-top: 1.5em;
   }
 }

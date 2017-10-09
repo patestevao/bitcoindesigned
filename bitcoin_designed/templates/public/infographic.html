@@ -2,44 +2,44 @@
 {% load static %}
 
 {% block content %}
+<div class="row align-center newer-older-container">
+  <div class="newer-container medium-6 columns">
+    {% if next_infographic %}
+    <div class="row align-middle">
+      <div class="newer-arrow-column shrink columns">
+        <a href="{% url 'public:infographic_detail' slug=next_infographic.slug %}" class="newer-link">
+          <img class="newer-image" src="{% static 'images/newer-arrow.svg' %}" alt="&larr;">
+        </a>
+      </div>
+      <div class="columns">
+        <a href="{% url 'public:infographic_detail' slug=next_infographic.slug %}" class="newer-link">
+          <h3 class="newer-title">{{ next_infographic.title }}</h3>
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="older-container medium-6 columns">
+    {% if prev_infographic %}
+    <div class="row align-middle">
+      <div class="columns">
+        <a href="{% url 'public:infographic_detail' slug=prev_infographic.slug %}" class="older-link">
+          <h3 class="older-title">{{ prev_infographic.title }}</h3>
+        </a>
+      </div>
+      <div class="older-arrow-column shrink columns">
+        <a href="{% url 'public:infographic_detail' slug=prev_infographic.slug %}" class="older-link">
+          <img class="older-image" src="{% static 'images/older-arrow.svg' %}" alt="&larr;">
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
 <div class="row align-center">
   <div class="small-12 medium-10 columns">
     <h2 class="infographic-title text-center">{{ object.title }}</h2>
   </div>
-</div>
-<div class="row align-center">
-  {% if next_infographic %}
-  <div class="prev-container medium-6 columns">
-    <div class="row align-middle">
-      <div class="prev-arrow-column shrink columns">
-        <a href="" class="prev-link">
-          <img class="prev-image" src="{% static 'images/prev-arrow.svg' %}" alt="&larr;">
-        </a>
-      </div>
-      <div class="columns">
-        <a href="{% url 'public:infographic_detail' slug=next_infographic.slug %}" class="prev-link">
-          <h3 class="prev-title">{{ next_infographic.title }}</h3>
-        </a>
-      </div>
-    </div>
-  </div>
-  {% endif %}
-  {% if prev_infographic %}
-  <div class="next-container medium-6 columns">
-    <div class="row align-middle">
-      <div class="columns">
-        <a href="{% url 'public:infographic_detail' slug=prev_infographic.slug %}" class="next-link">
-          <h3 class="next-title">{{ prev_infographic.title }}</h3>
-        </a>
-      </div>
-      <div class="next-arrow-column shrink columns">
-        <a href="" class="next-link">
-          <img class="next-image" src="{% static 'images/next-arrow.svg' %}" alt="&larr;">
-        </a>
-      </div>
-    </div>
-  </div>
-  {% endif %}
 </div>
 <div class="row align-center">
   <div class="full-infographic-outer-container small-12 columns">
