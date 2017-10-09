@@ -92,17 +92,66 @@ a:hover {
 }
 
 /*top section styles*/
+#svg-container {
+  background-color: #6460bf;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 12em;
+  width: 100%;
+}
+
+#svg-container svg {
+  height: 100%;
+  width: 100%;
+}
+
+#first-squares {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation-name: animate;
+  animation-duration: 1200ms;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
+}
+
+#second-squares {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation-name: animate;
+  animation-duration: 1200ms;
+  animation-delay: 1200ms;
+  animation-fill-mode: forwards;
+}
+
+#third-squares {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation-name: animate;
+  animation-duration: 600ms;
+  animation-delay: 2400ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  to {
+    opacity: 0.1;
+  }
+}
+
+@keyframes animate {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
 #top-div {
-	background-color: #6460bf;
+	/*background-color: #6460bf;*/
 	min-width: 100%;
-	padding-top: 1em;
+  height: 12em;
 	padding-bottom: 2em;
-	background: linear-gradient(to right, #6460bf, #617BD6);
-	-webkit-background: linear-gradient(to right, #6460bf, #617BD6);
-	-moz-background: linear-gradient(to right, #6460bf, #617BD6);
-	-o-background: linear-gradient(to right, #6460bf, #617BD6);
-  padding-top: 1.5em;
+  padding-top: 2em;
 }
 
 #nav-left {
@@ -116,7 +165,7 @@ a:hover {
 }
 
 #logo {
-	max-width: 10em;
+	max-width: 8.5em;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -266,13 +315,20 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-	#top-div {
-		background: linear-gradient(135deg, #6460bf, #617BD6);
-		-webkit-background: linear-gradient(135deg, #6460bf, #617BD6);
-		-moz-background: linear-gradient(135deg, #6460bf, #617BD6);
-		-o-background: linear-gradient(135deg, #6460bf, #617BD6);
-    padding-bottom: 1.4em;
-	}
+  #top-div {
+    height: 11em;
+  }
+
+  #svg-container {
+    height: 11em;
+  }
+  #fourth-squares rect:nth-child(1n) {
+    opacity: 0;
+    animation-name: show;
+    animation-duration: 500ms;
+    animation-delay: 3000ms;
+    animation-fill-mode: forwards;
+  }
 
 	#logo {
 		text-align: center
@@ -280,7 +336,7 @@ a:hover {
 
 	#menu-list {
 		text-align: center;
-		margin-top: 1.4em;
+		margin-top: 1.8em;
 	}
 
 	li.menu-item:nth-child(3) {
