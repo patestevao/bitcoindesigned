@@ -130,19 +130,6 @@ a:hover {
   animation-fill-mode: forwards;
 }
 
-/*#third-squares {
-  stroke-dasharray: 80px;
-  stroke-dashoffset: 80px;
-  animation-name: animate;
-  animation-duration: 600ms;
-  animation-delay: 2400ms;
-  animation-fill-mode: forwards;
-}*/
-
-#third-squares {
-  opacity: 0;
-}
-
 @keyframes show {
   to {
     opacity: 0.1;
