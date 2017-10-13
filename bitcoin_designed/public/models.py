@@ -85,7 +85,7 @@ class Infographic(models.Model):
         super(Infographic, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ('pub_date', 'title')
+        ordering = ('-pub_date', 'title')
 
 
 class InfographicURL(models.Model):
