@@ -59,6 +59,10 @@ footer {
   text-align: center;
 }
 
+footer a {
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
   footer {
     font-size: 0.9em;
@@ -589,6 +593,10 @@ a:hover {
   font-size: 1.1em;
 }
 
+.bio-info a {
+  font-weight: 600;
+}
+
 .author-name {
   font-size: 1.4em;
   margin-bottom: 1em;
@@ -734,8 +742,9 @@ a:hover {
 }
 
 .post-infographic-link {
-  color: #777;
-  border-bottom: 2px solid #3acccc;
+  color: #3acccc;
+  font-weight: 600;
+  /*border-bottom: 2px solid #3acccc;*/
   padding-bottom: 1px;
 }
 
