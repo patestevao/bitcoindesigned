@@ -162,15 +162,28 @@ a:hover {
 	padding-right: 1em;
 }
 
+#nav-first-line, #nav-second-line {
+  text-align: center;
+}
+
+#nav-first-line {
+  margin-top: 1em;
+}
+
+#nav-second-line {
+  margin-top: 3em;
+}
+
 #logo {
-	max-width: 8.5em;
+	max-width: 9em;
 	display: inline-block;
 	vertical-align: middle;
+  text-align: center;
 }
 
 #top-home-link {
 	text-decoration: none;
-	text-align: left;
+	text-align: center;
 }
 
 #top-home-link:hover {
@@ -294,36 +307,36 @@ a:hover {
 }
 
 @media (max-width: 1024px) {
-  #logo {
+  /*#logo {
 		text-align: center
 	}
 
 	#menu-list {
 		text-align: center;
 		margin-top: 2.2em;
-	}
+	}*/
 
-  li.menu-item:nth-child(1) {
+  /*li.menu-item:nth-child(1) {
 		margin-left: 0.8em;
 	}
 
 	li.menu-item:nth-child(3) {
 		margin-right: 0;
-	}
+	}*/
 
-	#top-home-link {
+	/*#top-home-link {
 		display: block;
 		text-align: center;
-	}
+	}*/
 
 	.menu-item {
 		margin-left: 0.8em;
 		margin-right: 0.8em;
 	}
 
-	li.menu-item:nth-child(1) {
+	/*li.menu-item:nth-child(1) {
 		margin-left: 0;
-	}
+	}*/
 
   #top-div {
     height: 16em;
@@ -339,6 +352,14 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  #nav-first-line {
+    margin-top: 0;
+  }
+
+  #nav-second-line {
+    margin-top: 1.5em;
+  }
+
   #top-div {
     height: 12em;
   }
@@ -360,7 +381,6 @@ a:hover {
 
   #menu-list {
 		text-align: center;
-		margin-top: 1.8em;
 	}
 
 	.cta-copy {
