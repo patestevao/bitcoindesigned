@@ -42,7 +42,7 @@
           .st0{display:none;}
           .st1{display:inline;fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:0.1}
           .st2{opacity:0.2;fill:#FFFFFF;enable-background:new    ;}
-          .st3, .st4{fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:0.1}
+          .st3, .st4{fill:none;stroke:#3acccc;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:0.2}
           </style>
           <g id="second-squares">
           	<rect x="38.9" y="2" class="st4" width="20.1" height="20.1"/>
@@ -627,19 +627,35 @@
           </svg>
       </div>
 		<nav>
-			<div class="full-width row">
-				<div id="nav-left" class="small-12 large-6 medium-12 columns">
-					<a href="{% url 'public:home' %}" id="top-home-link">
-						<h1><img id="logo" src="{% static 'images/logo.svg' %}" alt="bitcoin designed"></h1>
-					</a>
-				</div>
-				<div id="nav-right" class="small-12 large-6 medium-12 columns">
-					<ul id="menu-list">
+      <div class="row">
+        <div id="nav-first-line" class="small-12 columns">
+          <a href="{% url 'public:home' %}" id="top-home-link">
+            <h1><img id="logo" src="{% static 'images/logo.svg' %}" alt="bitcoin designed"></h1>
+          </a>
+        </div>
+        <div id="nav-second-line" class="small-12 columns">
+          <ul id="menu-list">
 						<li class="menu-item{% if request.path == home_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'public:home' %}">Home</a></li>
             <li class="menu-item{% if request.path == about_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'public:about' %}">About Us</a></li>
 					</ul>
-				</div>
-			</div>
+        </div>
+      </div>
+
+      {# Same line navigation #}
+
+			{# <div class="full-width row"> #}
+				{# <div id="nav-left" class="small-12 large-6 medium-12 columns"> #}
+					{# <a href="{% url 'public:home' %}" id="top-home-link"> #}
+						{# <h1><img id="logo" src="{% static 'images/logo.svg' %}" alt="bitcoin designed"></h1> #}
+					{# </a> #}
+				{# </div> #}
+				{# <div id="nav-right" class="small-12 large-6 medium-12 columns"> #}
+					{# <ul id="menu-list"> #}
+						{# <li class="menu-item{% if request.path == home_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'public:home' %}">Home</a></li> #}
+            {# <li class="menu-item{% if request.path == about_url %} active-item{% endif %}"><a class="menu-link" href="{% url 'public:about' %}">About Us</a></li> #}
+					{# </ul> #}
+				{# </div> #}
+			{# </div> #}
 		</nav>
 	</div>
       {% block content %}
