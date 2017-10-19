@@ -11,18 +11,6 @@
         <li><h3 class="newer-title">{{ next_infographic.title }}</h3></li>
       </ul>
     </a>
-    {# <div class="row align-middle"> #}
-      {# <div class="newer-arrow-column shrink columns"> #}
-        {# <a href="{% url 'public:infographic_detail' slug=next_infographic.slug %}" class="newer-link"> #}
-          {# <img class="newer-image" src="{% static 'images/newer-arrow.svg' %}" alt="&larr;"> #}
-        {# </a> #}
-      {# </div> #}
-      {# <div class="columns"> #}
-        {# <a href="{% url 'public:infographic_detail' slug=next_infographic.slug %}" class="newer-link"> #}
-          {# <h3 class="newer-title">{{ next_infographic.title }}</h3> #}
-        {# </a> #}
-      {# </div> #}
-    {# </div> #}
     {% endif %}
   </div>
   <div class="older-container medium-6 columns">
@@ -33,18 +21,6 @@
         <li><img class="older-image" src="{% static 'images/older-arrow.svg' %}" alt="&larr;"></li>
       </ul>
     </a>
-    {# <div class="row align-middle"> #}
-      {# <div class="columns"> #}
-        {# <a href="{% url 'public:infographic_detail' slug=prev_infographic.slug %}" class="older-link"> #}
-          {# <h3 class="older-title">{{ prev_infographic.title }}</h3> #}
-        {# </a> #}
-      {# </div> #}
-      {# <div class="older-arrow-column shrink columns"> #}
-        {# <a href="{% url 'public:infographic_detail' slug=prev_infographic.slug %}" class="older-link"> #}
-          {# <img class="older-image" src="{% static 'images/older-arrow.svg' %}" alt="&larr;"> #}
-        {# </a> #}
-      {# </div> #}
-    {# </div> #}
     {% endif %}
   </div>
 </div>
@@ -63,6 +39,13 @@
 <div class="row">
   <div class="small-12 columns">
     <div class="separate-content-container">
+      <ul class="infographic-tag-list tag-list">
+        {% for tag in tags %}
+          <li class="tag-item">
+            <a class="infographic-tag" href="{% url 'public:tag' slug=tag.slug %}">{{ tag.tag }}</a>
+          </li>
+        {% endfor %}
+      </ul>
       <p class="infographic-date">Original creation date: {{ object.pub_date }}</p>
       <p class="infographic-date">Last update: {{ object.last_update_date }}</p>
       {# <p class="infographic-date"><a class="post-infographic-link"href="#">Timestamped</a> on the Bitcoin blockchain using OpenTimestamps.</p> #}
