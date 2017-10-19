@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.http import Http404
 
 from .models import Infographic, Tag
 
@@ -35,6 +36,27 @@ class InfographicDetailView(DetailView):
 
         context['next_infographic'] = next_infographic
         context['prev_infographic'] = prev_infographic
+
+        return context
+
+
+class TagListView(ListView):
+    model = Infographic
+    template_name = 'public/tag.html'
+
+    def get_queryset(self, **kwargs):
+        tag_slug = self.kwargs['slug']
+        queryset = Infographic.objects.filter(tags__slug=tag_slug).all()
+        if queryset:
+            return queryset
+        raise Http404
+
+    def get_context_data(self, **kwargs):
+        tag_slug = self.kwargs['slug']
+        tag = Tag.objects.filter(slug=tag_slug).first()
+
+        context = super(TagListView, self).get_context_data(**kwargs)
+        context['tag'] = tag
 
         return context
 

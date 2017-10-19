@@ -7,13 +7,8 @@
 	<div class="small-12 columns">
 		<ul id="tag-list">
 			<li class="tag-item">
-				<p class="tag-title">What are you looking for?</p>
+        <p class="tag-title">Showing infographics for tag <span class="tag">{{ tag }}</span></p>
 			</li>
-      {% for tag in tags %}
-			<li class="tag-item">
-        <a href="{% url 'public:tag' slug=tag.slug %}" class="tag">{{ tag.tag }}</a>
-			</li>
-      {% endfor %}
 		</ul>
 	</div>
 </div>

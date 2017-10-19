@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 
 # Create your models here.
@@ -124,6 +122,9 @@ class Tag(models.Model):
         max_length=150,
         blank=True,
         null=True,
+    )
+    slug = models.SlugField(
+        "Slug",
     )
 
     class Meta:

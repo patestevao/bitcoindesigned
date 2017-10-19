@@ -14,8 +14,13 @@ urlpatterns = [
         name='about'
     ),
     url(
-        regex=r'^infographic/(?P<slug>[\w-]+)/$',
+        regex=r'^infographics/(?P<slug>[\w-]+)/$',
         view=views.InfographicDetailView.as_view(),
         name='infographic_detail'
-    )
+    ),
+    url(
+        regex=r'^tags/(?P<slug>[\w-]+)/$',
+        view=views.TagListView.as_view(),
+        name='tag'
+    ),
 ]
