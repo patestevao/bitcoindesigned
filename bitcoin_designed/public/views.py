@@ -24,6 +24,7 @@ class InfographicDetailView(DetailView):
         slug = self.kwargs['slug']
         context = super(InfographicDetailView, self).get_context_data(**kwargs)
         this_infographic = Infographic.objects.filter(slug=slug).first()
+        tags = this_infographic.tags.all()
 
         try:
             next_infographic = this_infographic.get_next_by_pub_date()
@@ -36,6 +37,7 @@ class InfographicDetailView(DetailView):
 
         context['next_infographic'] = next_infographic
         context['prev_infographic'] = prev_infographic
+        context['tags'] = tags
 
         return context
 
