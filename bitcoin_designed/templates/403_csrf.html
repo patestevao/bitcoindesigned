@@ -2,8 +2,19 @@
 
 {% block title %}Forbidden (403){% endblock %}
 
-{% block content %}
-<h1>Forbidden (403)</h1>
+{% block topDiv %}
+{% endblock topDiv %}
 
-<p>CSRF verification failed. Request aborted.</p>
+{% block content %}
+<div id="error403-page">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>Forbidden (403)</h1>
+      <p>CSRF verification failed. Request aborted.</p>
+    </div>
+  </div>
+</div>
 {% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

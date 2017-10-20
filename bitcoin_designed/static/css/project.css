@@ -795,18 +795,18 @@ a:hover {
 
 /*error pages*/
 
-#error404-page {
+#error404-page, #error500-page, #error403-page {
   background-color: #4527a0;
   height: 100vh;
   padding: 4em 0;
   color: #fff;
 }
 
-#error404-page h1 {
+#error404-page h1, #error500-page h1, #error403-page h1 {
   font-size: 3em;
 }
 
-#error404-page p {
+#error404-page p, #error500-page p, #error403-page {
   font-size: 1.2em;
 }
 
