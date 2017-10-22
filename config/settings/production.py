@@ -129,7 +129,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-DATABASES['default']['NAME'] = env.db('DATABASE_NAME')
+# DATABASES['default']['NAME'] = env.db('DATABASE_NAME')
 
 # CACHING
 # ------------------------------------------------------------------------------
