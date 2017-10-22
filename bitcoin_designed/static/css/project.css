@@ -792,3 +792,61 @@ a:hover {
     margin-top: 0;
   }
 }
+
+/*error pages*/
+
+#error404-page, #error500-page, #error403-page {
+  background-color: #4527a0;
+  height: 100vh;
+  padding: 4em 0;
+  color: #fff;
+}
+
+#error404-page h1, #error500-page h1, #error403-page h1 {
+  font-size: 3em;
+}
+
+#error404-page p, #error500-page p, #error403-page {
+  font-size: 1.2em;
+}
+
+#error-svg {
+  stroke-dasharray: 500px;
+  animation: animateText 2s ease-in;
+  animation-fill-mode: forwards;
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+}
+
+.error-svg-container {
+  margin-bottom: 3em;
+  margin-top: 1em;
+}
+
+#error-svg path {
+  fill: rgba(0,0,0,0);
+  stroke: #fcfcfc;
+  stroke-width: 2;
+}
+
+@keyframes animateText {
+  0% {
+    stroke-dashoffset: 500px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media(max-width: 500px) {
+  #error404-page h1, #error500-page h1, #error403-page h1 {
+    font-size: 1.8em;
+  }
+
+  .error-svg-container {
+    margin-bottom: 2em;
+    margin-top: 0;
+  }
+}
