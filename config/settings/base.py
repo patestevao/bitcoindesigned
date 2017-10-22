@@ -249,7 +249,7 @@ AUTHENTICATION_BACKENDS = [
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 ########## CELERY
-INSTALLED_APPS += ['bitcoin_designed.taskapp.celery.CeleryConfig']
+# INSTALLED_APPS += []
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 if CELERY_BROKER_URL == 'django://':
     CELERY_RESULT_BACKEND = 'redis://'
