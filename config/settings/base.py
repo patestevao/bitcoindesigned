@@ -256,7 +256,10 @@ if CELERY_BROKER_URL == 'django://':
 else:
     CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 ########## END CELERY
-
+# django-compressor
+# ------------------------------------------------------------------------------
+INSTALLED_APPS += ['compressor']
+STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
