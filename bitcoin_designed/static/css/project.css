@@ -431,6 +431,13 @@ a:hover {
   margin-bottom: 1.5em;
 }
 
+.show-all-link {
+  font-weight: 600;
+  padding: 10px;
+  border: 1px solid #3acccc;
+  border-radius: 2px;
+}
+
 .content {
 	text-align: center;
 	margin-top: 1em;
@@ -469,15 +476,14 @@ a:hover {
 	z-index: 3;
 	transition: opacity 0.1s ease-in;
 	border-radius: 5px 5px 0 0;
-  box-shadow: inset 0 0 25px 4px rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 25px 4px rgba(0,0,0,0.1);
 }
 
-/*.infographic-sample-link:hover > .overlay {
-	opacity: 0.6;
-}*/
+.infographic-sample-link:hover > .overlay {
+	box-shadow: none;
+}
 
 .infographic-sample-link:hover > .infographic-image {
-  -webkit-filter: grayscale(0);
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }
@@ -526,6 +532,17 @@ a:hover {
   font-size: 1.5em;
 	margin-top: 0.5em;
 	margin-bottom: 0;
+  display: inline;
+}
+
+.infographic-sample-title-link {
+  color: #4d4d4d;
+  background-color: transparent;
+}
+
+.infographic-sample-title-link:hover {
+  color: #4527A0;
+  background-color: transparent;
 }
 
 .infographic-sample-date {
