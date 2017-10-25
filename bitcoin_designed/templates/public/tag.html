@@ -10,7 +10,10 @@
         <p class="tag-title">Showing infographics for tag</p>
 			</li>
 			<li class="tag-item">
-        <a href="{% url 'public:home' %}"><span class="tag-active">{{ tag }}</span></a>
+        <span class="tag-active">{{ tag }}</span>
+			</li>
+			<li class="tag-item">
+				<a href="{% url 'public:home' %}" class="show-all-link">Show all &#8617;</a>
 			</li>
 		</ul>
 	</div>
