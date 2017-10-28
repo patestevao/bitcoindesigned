@@ -121,7 +121,7 @@ a:hover {
   stroke-dashoffset: 80px;
   animation-name: animate;
   animation-duration: 1200ms;
-  animation-delay: 200ms;
+  animation-delay: 400ms;
   animation-fill-mode: forwards;
 }
 
@@ -130,7 +130,7 @@ a:hover {
   stroke-dashoffset: 80px;
   animation-name: animate;
   animation-duration: 1200ms;
-  animation-delay: 1200ms;
+  animation-delay: 1400ms;
   animation-fill-mode: forwards;
 }
 
@@ -831,9 +831,11 @@ a:hover {
   stroke-dasharray: 500px;
   animation: animateText 2s ease-in;
   animation-fill-mode: forwards;
+  animation-delay: 500ms;
   width: 90%;
   max-width: 600px;
   height: auto;
+  opacity: 0;
 }
 
 .error-svg-container {
@@ -850,13 +852,20 @@ a:hover {
 @keyframes animateText {
   0% {
     stroke-dashoffset: 500px;
+    opacity: 1;
   }
 
   100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
+@media(max-height: 500px) {
+  #error404-page, #error500-page, #error403-page {
+    height: 100%;
+  }
+}
 @media(max-width: 500px) {
   #error404-page h1, #error500-page h1, #error403-page h1 {
     font-size: 1.8em;
