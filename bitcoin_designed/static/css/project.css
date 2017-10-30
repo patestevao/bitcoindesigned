@@ -556,6 +556,12 @@ a:hover {
 	}
 }
 
+@media (max-width: 500px) {
+  .tag-list {
+    margin-top: 1.5em;
+  }
+}
+
 .section-title {
 	font-size: 2em;
 }
