@@ -380,12 +380,27 @@ a:hover {
 /*ends top section styles*/
 /*------------------*/
 
+.tagline {
+  font-size: 3.5em;
+  text-align: center;
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2em;
+  padding-bottom: 1em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  box-sizing: border-box;
+  border-bottom: 8px solid #3acccc;
+}
+
 .tag-list {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	text-align: left;
-	margin-top: 3em;
+	margin-top: 5em;
+  margin-bottom: 2em;
 }
 
 .tag-item {
@@ -554,14 +569,36 @@ a:hover {
 	.infographic-container {
 		margin-top: 3.5em;
 	}
+
+  .tag-list {
+    margin-bottom: 0;
+  }
+  .tagline {
+    font-size: 2.8em;
+    max-width: 550px;
+  }
 }
 
 @media (max-width: 500px) {
   .tag-list {
-    margin-top: 1.5em;
+    margin-top: 2em;
+  }
+
+  .tagline {
+    font-size: 2em;
+    border-bottom: 6px solid #3acccc;
+    padding-bottom: 1.2em;
   }
 }
 
+@media (max-width: 350px) {
+  .tagline {
+    margin-top: 2.5em;
+    font-size: 1.8em;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+  }
+}
 .section-title {
 	font-size: 2em;
 }
