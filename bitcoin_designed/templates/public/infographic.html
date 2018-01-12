@@ -50,10 +50,10 @@
       <p class="infographic-date">Last update: {{ object.last_update_date }}</p>
       {# <p class="infographic-date"><a class="post-infographic-link"href="#">Timestamped</a> on the Bitcoin blockchain using OpenTimestamps.</p> #}
     </div>
-    {# <div class="separate-content-container"> #}
-      {# {% for infographic_url in object.infographicurl_set.all %} #}
-      {# <p class="infographic-text"><a class="post-infographic-link" href="{{ infographic_url.url }}">Download this infographic in high resolution. ({{ infographic_url.language.name }})</a></p> #}
-      {# {% endfor %} #}
+    <div class="separate-content-container">
+      {% for infographic_url in object.infographicurl_set.all %}
+      <p class="infographic-text"><a class="post-infographic-link" href="{{ infographic_url.url }}">Download this infographic in high resolution. ({{ infographic_url.language.name }})</a></p>
+      {% endfor %}
       {# <p class="infographic-text"><a class="post-infographic-link" href="">Download the source file for this infographics (Adobe Illustrator format).</a></p> #}
     {# </div> #}
     {# <div class="separate-content-container"> #}
