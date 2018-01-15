@@ -177,7 +177,7 @@ a:hover {
 }
 
 #logo {
-	max-width: 9em;
+	max-width: 11em;
 	display: inline-block;
 	vertical-align: middle;
   text-align: center;
@@ -303,6 +303,10 @@ a:hover {
     height: 16em;
   }
 
+  #logo {
+    max-width: 9em;
+  }
+
   #nav-left {
     padding-left: 0;
   }
@@ -337,7 +341,7 @@ a:hover {
   }
 
   #logo {
-		max-width: 6.5em;
+		max-width: 7em;
 	}
 
   #menu-list {
