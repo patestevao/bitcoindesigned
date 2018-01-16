@@ -57,16 +57,17 @@ footer {
   padding-bottom: 2em;
   margin-top: 5em;
   text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+footer p {
+  text-align: center;
+  font-size: 0.9em;
 }
 
 footer a {
   font-weight: 600;
-}
-
-@media (max-width: 640px) {
-  footer {
-    font-size: 0.9em;
-  }
 }
 
 h1 {
@@ -450,6 +451,7 @@ a:hover {
 	border-radius: 2px;
 	color: #12A4A4;
   margin-bottom: 10px;
+  display: block;
 }
 
 .infographic-tag-list {
@@ -672,8 +674,8 @@ a:hover {
 }
 
 .newer-older-container {
-  margin-top: 1em;
-  margin-bottom: 3em;
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
 
 .newer-container, .older-container {
@@ -686,7 +688,7 @@ a:hover {
 
 .newer-link, .older-link {
   color: #4527a0;
-  padding: 1em;
+  /* padding: 1em; */
 }
 
 .newer-arrow-column {
@@ -707,17 +709,31 @@ a:hover {
 }
 
 .newer-link:hover, .older-link:hover {
-  color: #fff;
+  background-color: transparent;
+  color: #4527a0;
+}
+
+.newer-link:hover > .newer-title, .older-link:hover > .older-title {
+  text-decoration: underline;
 }
 
 .newer-title, .older-title {
   font-size: 1.2em;
   font-weight: 300;
+  display: inline;
 }
 
 .newer-image, .older-image {
   height: 16px;
   margin-top: -2px;
+}
+
+.newer-image {
+  margin-right: 8px;
+}
+
+.older-image {
+  margin-left: 8px;
 }
 
 .older-link {
@@ -766,6 +782,16 @@ a:hover {
 .separate-content-container {
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+@media (min-width: 640px) and (max-width: 1150px) {
+  .separate-content-container {
+    margin-left: 2em;
+  }
+  .newer-older-container {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 .infographic-text {
@@ -860,8 +886,8 @@ a:hover {
   }
 
   .newer-older-container {
-    margin-bottom: 1.5em;
-    margin-top: 0;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
   }
 }
 
