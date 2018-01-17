@@ -13,23 +13,23 @@
     {% if infographic and infographic.thumbnail_img and infographic.thumbnail_img.url %}
     <!-- social-->
   	<meta property="og:image" content="{{ infographic.thumbnail_img.url }}">
-    <meta property="twitter:image" content="{{ infographic.thumbnail_img.url }}">
+    <meta name="twitter:image" content="{{ infographic.thumbnail_img.url }}">
     <!-- description -->
     {% if object and object.title %}
     <meta name="description" content="{{ object.title }}">
     <meta property="og:description" content="{{ object.title }}">
-    <meta property="twitter:description" content="{{ object.title }}">
+    <meta name="twitter:description" content="{{ object.title }}">
     {% endif %}
     {% else %}
     <!-- social-->
     <meta property="og:image" content="{% static 'images/perfil-bitcoindesigned.png' %}">
-    <meta property="twitter:image" content="{% static 'images/perfil-bitcoindesigned.png' %}">
+    <meta name="twitter:image" content="{% static 'images/perfil-bitcoindesigned.png' %}">
     <!-- description -->
     <meta name="description" content="Design resources and materials for Bitcoin.">
     <meta property="og:description" content="Design resources and materials for Bitcoin.">
-    <meta property="twitter:description" content="Design resources and materials for Bitcoin.">
+    <meta name="twitter:description" content="Design resources and materials for Bitcoin.">
     {% endif %}
-    <meta property="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,700" rel="stylesheet">
     <!-- /social and description tags -->
     <link rel="icon" type="image/png" href="{% static 'images/favicon.ico' %}">
