@@ -7,15 +7,31 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Bitcoin designed{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
     <meta name="author" content="">
+    <!-- social and description tags -->
     <meta property="og:type" content="website">
-  	<meta property="og:image" content="">
-  	<meta property="og:description" content="">
-  	<!-- /twitter card tags -->
-  	<meta name="twitter:card" content="summary">
-  	<meta name="twitter:description" content="">
+    {% if infographic and infographic.thumbnail_img and infographic.thumbnail_img.url %}
+    <!-- social-->
+  	<meta property="og:image" content="{{ infographic.thumbnail_img.url }}">
+    <meta property="twitter:image" content="{{ infographic.thumbnail_img.url }}">
+    <!-- description -->
+    {% if object and object.title %}
+    <meta name="description" content="{{ object.title }}">
+    <meta property="og:description" content="{{ object.title }}">
+    <meta property="twitter:description" content="{{ object.title }}">
+    {% endif %}
+    {% else %}
+    <!-- social-->
+    <meta property="og:image" content="{% static 'images/perfil-bitcoindesigned.png' %}">
+    <meta property="twitter:image" content="{% static 'images/perfil-bitcoindesigned.png' %}">
+    <!-- description -->
+    <meta name="description" content="Design resources and materials for Bitcoin.">
+    <meta property="og:description" content="Design resources and materials for Bitcoin.">
+    <meta property="twitter:description" content="Design resources and materials for Bitcoin.">
+    {% endif %}
+    <meta property="twitter:card" content="summary">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,700" rel="stylesheet">
+    <!-- /social and description tags -->
     <link rel="icon" type="image/png" href="{% static 'images/favicon.ico' %}">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
