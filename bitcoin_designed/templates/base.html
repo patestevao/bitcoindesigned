@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
     <!-- social and description tags -->
+    <meta name="twitter:card" content="summary">
     <meta property="og:type" content="website">
     {% if infographic and infographic.thumbnail_img and infographic.thumbnail_img.url %}
     <!-- social-->
@@ -16,6 +17,8 @@
     <meta name="twitter:image" content="{{ infographic.thumbnail_img.url }}">
     <!-- description -->
     {% if object and object.title %}
+    <meta property="og:title" content="{{ object.title }}">
+    <meta name="twitter:title" content="{{ object.title }}">
     <meta name="description" content="{{ object.title }}">
     <meta property="og:description" content="{{ object.title }}">
     <meta name="twitter:description" content="{{ object.title }}">
@@ -29,7 +32,6 @@
     <meta property="og:description" content="Design resources and materials for Bitcoin.">
     <meta name="twitter:description" content="Design resources and materials for Bitcoin.">
     {% endif %}
-    <meta name="twitter:card" content="summary">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,700" rel="stylesheet">
     <!-- /social and description tags -->
     <link rel="icon" type="image/png" href="{% static 'images/favicon.ico' %}">
