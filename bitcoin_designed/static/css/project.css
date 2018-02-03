@@ -669,7 +669,7 @@ a:hover {
 
 .infographic-title {
   font-size: 3em;
-  margin-top: 0;
+  margin-top: 1em;
   margin-bottom: 0;
 }
 
@@ -766,8 +766,7 @@ a:hover {
 }
 
 .full-infographic-image {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
