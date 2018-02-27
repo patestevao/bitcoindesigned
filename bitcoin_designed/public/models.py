@@ -82,6 +82,9 @@ class Infographic(models.Model):
         self.last_update_date = timezone.now()
         super(Infographic, self).save(*args, **kwargs)
 
+    def is_active(self):
+        return self.active
+
     class Meta:
         ordering = ('-pub_date', 'title')
 
