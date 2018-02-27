@@ -9,9 +9,13 @@ class HomeListView(ListView):
     model = Infographic
     template_name = 'public/home.html'
 
+    def get_queryset(self, **kwargs):
+        queryset = Infographic.objects.filter(active=True).all()
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super(HomeListView, self).get_context_data(**kwargs)
-        context['tags'] = Tag.objects.all()
+        context['tags'] = Tag.objects.filter(infographic__active=True).all()
         return context
 
 
@@ -27,11 +31,15 @@ class InfographicDetailView(DetailView):
         tags = this_infographic.tags.all()
 
         try:
-            next_infographic = this_infographic.get_next_by_pub_date()
+            next_infographic = this_infographic.get_next_by_pub_date(
+                active=True
+            )
         except Infographic.DoesNotExist:
             next_infographic = None
         try:
-            prev_infographic = this_infographic.get_previous_by_pub_date()
+            prev_infographic = this_infographic.get_previous_by_pub_date(
+                active=True
+            )
         except Infographic.DoesNotExist:
             prev_infographic = None
 
@@ -48,7 +56,8 @@ class TagListView(ListView):
 
     def get_queryset(self, **kwargs):
         tag_slug = self.kwargs['slug']
-        queryset = Infographic.objects.filter(tags__slug=tag_slug).all()
+        queryset = Infographic.objects.filter(active=True,
+                                              tags__slug=tag_slug).all()
         if queryset:
             return queryset
         raise Http404
