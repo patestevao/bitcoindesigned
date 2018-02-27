@@ -15,7 +15,7 @@ class HomeListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeListView, self).get_context_data(**kwargs)
-        context['tags'] = Tag.objects.filter(infographic__active=True).all()
+        context['tags'] = Tag.objects.filter(infographic__active=True).distinct()
         return context
 
 
