@@ -374,6 +374,33 @@ a:hover {
 /*ends top section styles*/
 /*------------------*/
 
+.i18n-section {
+  margin-top: 4em;
+}
+
+.i18n-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.i18n-image {
+  height: 70px;
+  margin-right: 1.5em;
+}
+.i18n-title {
+  font-size: 2.5em;
+}
+
+.i18n-link {
+  font-weight: 700;
+  color: #3acccc;
+}
+
+.i18n-text {
+  font-size: 1.2em;
+}
+
 .tag-list {
 	margin: 0;
 	padding: 0;
@@ -548,6 +575,12 @@ a:hover {
 	margin-top: 0.5em;
 }
 
+@media (max-width: 700px) {
+  .i18n-title {
+    font-size: 2em;
+  }
+}
+
 @media (max-width: 640px) {
   .tag-list {
     margin-bottom: 0;
@@ -573,6 +606,19 @@ a:hover {
   }
   .tagline {
     font-size: 1.5em;
+  }
+
+  .i18n-title {
+    font-size: 1.5em;
+  }
+
+  .i18n-text {
+    font-size: 1em;
+  }
+
+  .i18n-image {
+    height: 60px;
+    margin-right: 1em;
   }
 }
 
