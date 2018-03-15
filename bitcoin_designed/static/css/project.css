@@ -899,6 +899,62 @@ a:hover {
   }
 }
 
+/* translations page */
+
+.translations-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.translations-section {
+  margin-top: 4em;
+}
+
+.translations-button-container {
+  margin-top: 3em;
+}
+
+.translations-button {
+  background: #fcfcfc;
+  color: #3acccc;
+  font-weight: 700;
+  padding: 15px 20px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  border: 3px solid #3acccc;
+  box-shadow: 3px 3px 2px 2px rgba(58,204,204,0.3);
+  transition: all 0.1s ease-in;
+}
+
+.translations-button:hover, .translations-button:focus {
+  background-color: #3acccc;
+}
+
+.translations-image {
+  height: 120px;
+  margin-right: 1.5em;
+  margin-top: 1.5em;
+}
+
+@media(max-width: 640px) {
+  .translations-title-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .translations-image {
+    margin-top: 0;
+    margin-right: 0;
+    height: 100px;
+  }
+
+  .translations-title {
+    margin-top: 0.5em;
+    font-size: 2.4em;
+  }
+}
+
 /*error pages*/
 
 #error404-page, #error500-page, #error403-page {
