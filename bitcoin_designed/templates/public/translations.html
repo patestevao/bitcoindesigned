@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="translations-section">
+  <div class="align-center row">
+    <div class="translations-title-container small-12 medium-10 columns">
+        <img src="{% static 'images/globe-translation-icon.svg' %}" class="translations-image" alt="globe">
+      <h2 class="page-title translations-title">Infographic translations</h2>
+    </div>
+  </div>
+  <div class="align-center row">
+    <div class="small-12 medium-10 columns">
+      <p class="translations-text">We've listened to your requests and decided to come up with a way to translate our infographics into many different languages. After all, the people we want to help understand Bitcoin might not be comfortable with or speak English at all. And, as much as I'd like to be a polyglot and translate everything myself, last time I checked I still didn't have that super-power.</p>
+      <p class="translations-text">So we decided to ask for a collective effort that works like this: <strong>if you'd like to see an infographic in your native language, why not translate it yourself?</strong> We came up with a very simple manner that doesn't require you to have design software or skills. You translate the text and we'll take care of adapting it in the infographic file and publishing it here on the site.</p>
+      <p class="translations-text">Think it's a great idea? Yeah, we do too. So feel very welcome to contribute with this initiative. To learn more about the step-by-step of contributing and some of the organizing rules, visit our <a href="https://github.com/lxparallel/bitcoindesigned-infographics-i18n">GitHub repository</a>.</p>
+      <div class="translations-button-container">
+        <a href="https://github.com/lxparallel/bitcoindesigned-infographics-i18n" class="translations-button">See how to contribute</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

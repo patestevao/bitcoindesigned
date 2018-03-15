@@ -74,3 +74,6 @@ class TagListView(ListView):
 
 def about(request):
     return render(request, 'public/about.html')
+
+def translations(request):
+    return render(request, 'public/translations.html')
