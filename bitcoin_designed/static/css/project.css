@@ -811,10 +811,13 @@ a:hover {
   margin-bottom: 0;
 }
 
-.post-infographic-link {
+.full-resolution-link {
   color: #3acccc;
   font-weight: 600;
-  /*border-bottom: 2px solid #3acccc;*/
+  font-size: 1.2em;
+  margin-right: 0.8em;
+  margin-bottom:0.5em;
+  display: inline-block;
   padding-bottom: 1px;
 }
 
@@ -896,6 +899,10 @@ a:hover {
   .newer-older-container {
     margin-bottom: 1em;
     margin-top: 1.5em;
+  }
+
+  .full-resolution-link {
+    font-size: 1.1em;
   }
 }
 

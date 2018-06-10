@@ -22,7 +22,19 @@
 </div>
 <div class="row align-center">
   <div class="small-12 medium-10 columns">
-    <h2 class="infographic-title text-center">{{ object.title }}</h2>
+    <h2 class="infographic-title">{{ object.title }}</h2>
+   </div>
+</div>
+<div class="row align-center">
+  <div class="small-12 medium-10 columns">
+    <div class="separate-content-container">
+        {% if object.infographicurl_set.all %}
+        <p>Download in better resolution:</p>
+        {% for infographic_url in object.infographicurl_set.all %}
+        <a class="full-resolution-link" href="{{ infographic_url.url }}">({{ infographic_url.language.name }})</a>
+        {% endfor %}
+        {% endif %}
+      </div>
   </div>
 </div>
 <div class="row align-center">
@@ -45,20 +57,6 @@
       <p class="infographic-date">Original creation date: {{ object.pub_date }}</p>
       <p class="infographic-date">Last update: {{ object.last_update_date }}</p>
       {# <p class="infographic-date"><a class="post-infographic-link"href="#">Timestamped</a> on the Bitcoin blockchain using OpenTimestamps.</p> #}
-    </div>
-    <div class="separate-content-container">
-      {% if object.infographicurl_set.all %}
-      <p>Download this infographic in high resolution:</p>
-      {% for infographic_url in object.infographicurl_set.all %}
-      <p class="infographic-text"><a class="post-infographic-link" href="{{ infographic_url.url }}">({{ infographic_url.language.name }})</a></p>
-      {% endfor %}
-      {% endif %}
-      {# <p class="infographic-text"><a class="post-infographic-link" href="">Download the source file for this infographics (Adobe Illustrator format).</a></p> #}
-    {# </div> #}
-    {# <div class="separate-content-container"> #}
-    {#   <p class="infographic-text-title"><strong>Think this would look good as a printed poster?</strong></p> #}
-    {#   <p class="infographic-text"><a class="post-infographic-link" href="#">Buy your poster.</a></p> #}
-    {# </div> #}
     </div>
   </div>
 </div>
