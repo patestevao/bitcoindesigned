@@ -19,3 +19,50 @@ Issues with the above approach:
 4. Undocumented: No mention in the documentation, or it's too hard for me to find
 */
 $('.form-group').removeClass('row');
+
+
+$(document).ready(function(){
+
+    toggleDonate();
+
+    $(window).scroll(function(){
+        toggleDonate();
+    });
+    $('#donate-copy-button').click(function(){
+        var copyText = $("#donate-address");
+        $(copyText).focus();
+        $(copyText).select();
+        document.execCommand("copy");
+        copyFeedback();
+    });
+
+    $("#donate-qr-code-button").click(function() {
+        $('#qr-code-container').toggle(200);
+    });
+
+    $("#qr-code-close-button").click(function() {
+        $("#qr-code-container").hide(200);
+    });
+});
+
+function copyFeedback() {
+    $(".donate-feedback").show(200).delay(800).hide(200);
+}
+
+function toggleDonate() {
+    var windowScroll = $(window).scrollTop();
+    var targetPosition = $(".tagline").offset().top;
+    if( windowScroll >= targetPosition) {
+        $("#donate-container").show(250);
+    } else {
+        $("#donate-container").hide(250);
+    }
+}
+// function copyAddress() {
+//     var copyText = document.getElementById("donate-address");
+//     copyText.select();
+//     document.execCommand("copy");
+//     alert("Copied!");
+// }
+
+// document.getElementById("donate-copy-button").onclick = copyAddress;

@@ -79,6 +79,24 @@
       {% block content %}
       {% endblock content %}
 
+  {% block donate %}
+    <div id="donate-container">
+      <p class="donate-text">Want to help us keep up the work? <br> <span class="donate-text-larger">Donate!</span></p>
+      <div id="donate-info">
+        <input readonly type="text" value="3JdPAKomhPdAiX2RLTkqpbaHA3TED9YSwB" id="donate-address">
+        <button class="donate-button" id="donate-copy-button">Copy</button>
+        <button class="donate-button" id="donate-qr-code-button"><img id="qr-code-scan" src="{% static 'images/qr-code-scan.svg' %}" alt="show QR code"></button>
+      </div>
+      <p class="donate-feedback">Copied!</p>
+      <div id="qr-code-container">
+        <button id="qr-code-close-button">
+          <img id="qr-code-close-icon" src="{% static 'images/cross.svg' %}" alt="close">
+        </button>
+        <img id="qr-code-image" src="{% static 'images/qr-code-example.png' %}" alt="qr code">
+      </div>
+    </div>
+  {% endblock donate%}
+
   {% block footer %}
     <footer>
       <p>This project and all content in this website are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
@@ -89,10 +107,10 @@
     {% block javascript %}
 
       <!-- Your stuff: Third-party javascript libraries go here -->
-      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
       <!-- place project specific Javascript in this file -->
 
-      {# <script src="{% static 'js/project.js' %}"></script> #}
+      <script src="{% static 'js/project.js' %}"></script>
 
 
     {% endblock javascript %}
