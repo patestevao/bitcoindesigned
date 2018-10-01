@@ -737,6 +737,39 @@ a:hover {
   padding: 1em 0;
 }
 
+#donate-container-mobile {
+  background-color: #3acccc;
+  padding: 1em;
+  width: auto;
+  height: auto;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 999;
+  display: none;
+}
+
+.donate-container-link {
+  color: #fff;
+  font-weight: 700;
+  display: block;
+}
+
+#donate-heart-img {
+  height: 20px;
+  margin-left: 3px;
+  width: auto;
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  #donate-container {
+    display: none;
+  }
+
+  #donate-container-mobile {
+    display: block;
+  }
 }
 /*--------------*/
 /*About page styles*/

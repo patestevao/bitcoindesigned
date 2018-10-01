@@ -95,6 +95,11 @@
         <img id="qr-code-image" src="{% static 'images/qr-code-example.png' %}" alt="qr code">
       </div>
     </div>
+    <div id="donate-container-mobile">
+      <a class="donate-container-link" href="{% url 'public:donate' %}">Donate
+        <img id="donate-heart-img" src="{% static 'images/heart.svg' %}" alt="">
+      </a>
+    </div>
   {% endblock donate%}
 
   {% block footer %}

@@ -23,26 +23,28 @@ $('.form-group').removeClass('row');
 
 $(document).ready(function(){
 
-    toggleDonate();
-
-    $(window).scroll(function(){
+    if ($(window).width() >= 640) {
         toggleDonate();
-    });
-    $('#donate-copy-button').click(function(){
-        var copyText = $("#donate-address");
-        $(copyText).focus();
-        $(copyText).select();
-        document.execCommand("copy");
-        copyFeedback();
-    });
 
-    $("#donate-qr-code-button").click(function() {
-        $('#qr-code-container').toggle(200);
-    });
+        $(window).scroll(function(){
+            toggleDonate();
+        });
+        $('#donate-copy-button').click(function(){
+            var copyText = $("#donate-address");
+            $(copyText).focus();
+            $(copyText).select();
+            document.execCommand("copy");
+            copyFeedback();
+        });
 
-    $("#qr-code-close-button").click(function() {
-        $("#qr-code-container").hide(200);
-    });
+        $("#donate-qr-code-button").click(function() {
+            $('#qr-code-container').toggle(200);
+        });
+
+        $("#qr-code-close-button").click(function() {
+            $("#qr-code-container").hide(200);
+        });
+    }
 });
 
 function copyFeedback() {
