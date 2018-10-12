@@ -1,6 +1,7 @@
 {% load staticfiles i18n %}<!DOCTYPE html>
 {% url 'public:home' as home_url %}
 {% url 'public:about' as about_url %}
+{% url 'public:donate' as donate_url %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -69,6 +70,9 @@
 						<li class="menu-item{% if request.path == about_url %} active-item{% endif %}">
               <a class="menu-link" href="{% url 'public:about' %}">About</a>
             </li>
+            <li class="menu-item{% if request.path == donate_url %} active-item{% endif %}">
+              <a class="menu-link" href="{% url 'public:donate' %}">Donate</a>
+            </li>
 					</ul>
 				</div>
 			</div>
@@ -100,7 +104,7 @@
         <img id="donate-heart-img" src="{% static 'images/heart.svg' %}" alt="">
       </a>
     </div>
-  {% endblock donate%}
+  {% endblock donate %}
 
   {% block footer %}
     <footer>

@@ -20,7 +20,6 @@ Issues with the above approach:
 */
 $('.form-group').removeClass('row');
 
-
 $(document).ready(function(){
 
     if ($(window).width() >= 640) {
@@ -29,12 +28,13 @@ $(document).ready(function(){
         $(window).scroll(function(){
             toggleDonate();
         });
+
         $('#donate-copy-button').click(function(){
-            var copyText = $("#donate-address");
-            $(copyText).focus();
-            $(copyText).select();
-            document.execCommand("copy");
-            copyFeedback();
+            var copyText = $(this).prev();
+            copyText.focus();
+            copyText.select();
+            document.execCommand('copy');
+            copyFeedback($(this).parent().next());
         });
 
         $("#donate-qr-code-button").click(function() {
@@ -44,27 +44,28 @@ $(document).ready(function(){
         $("#qr-code-close-button").click(function() {
             $("#qr-code-container").hide(200);
         });
+
+    } else {
+        $('#donate-copy-button-mobile').click(function(){
+            var copyText = $(this).prev();
+            copyText.focus();
+            copyText.select();
+            document.execCommand('copy');
+            copyFeedback($(this).parent().next());
+        });
     }
 });
 
-function copyFeedback() {
-    $(".donate-feedback").show(200).delay(800).hide(200);
+function copyFeedback(element) {
+    element.show(200).delay(800).hide(200);
 }
 
 function toggleDonate() {
     var windowScroll = $(window).scrollTop();
-    var targetPosition = $(".tagline").offset().top;
-    if( windowScroll >= targetPosition) {
+    var targetPosition = $("#menu-list").offset().top;
+    if( windowScroll >= (targetPosition + 200)) {
         $("#donate-container").show(250);
     } else {
         $("#donate-container").hide(250);
     }
 }
-// function copyAddress() {
-//     var copyText = document.getElementById("donate-address");
-//     copyText.select();
-//     document.execCommand("copy");
-//     alert("Copied!");
-// }
-
-// document.getElementById("donate-copy-button").onclick = copyAddress;

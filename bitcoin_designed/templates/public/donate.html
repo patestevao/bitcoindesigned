@@ -2,9 +2,26 @@
 {% load static %}
 
 {% block content %}
-<div class="align-center row">
-    <div class="small-12 medium-10 columns">
+  <div class="align-center row">
+    <div class="small-12 medium-10 columns" id="donate-title-container">
       <h2 class="page-title">Donate</h2>
+      <img id="donate-title-heart" src="{% static 'images/heart-filled.svg' %}" alt="">
+    </div>
+  </div>
+  <div class="align-center row">
+    <div class="small-12 medium-10 columns">
+      <p>Thank you! Donating will help us keep up this public work.</p>
+      <div id="donate-address-container-mobile">
+        <input readonly type="text" value="3JdPAKomhPdAiX2RLTkqpbaHA3TED9YSwB" id="donate-address-mobile">
+        <button id="donate-copy-button-mobile">Copy</button>
+      </div>
+      <p class="donate-feedback-mobile">Copied!</p>
+      <div id="qr-code-container-mobile">
+        <img id="qr-code-mobile" src="{% static 'images/qr-code-example.png' %}" alt="">
+      </div>
     </div>
   </div>
 {% endblock content %}
+
+{% block donate %}
+{% endblock donate %}
