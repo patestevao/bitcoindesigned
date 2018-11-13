@@ -45,15 +45,14 @@ $(document).ready(function(){
             $("#qr-code-container").hide(200);
         });
 
-    } else {
-        $('#donate-copy-button-mobile').click(function(){
-            var copyText = $(this).prev();
-            copyText.focus();
-            copyText.select();
-            document.execCommand('copy');
-            copyFeedback($(this).parent().next());
-        });
     }
+    $('#donate-page-copy-button').click(function(){
+        var copyText = $(this).prev();
+        copyText.focus();
+        copyText.select();
+        document.execCommand('copy');
+        copyFeedback($(this).parent().next());
+    });
 });
 
 function copyFeedback(element) {
