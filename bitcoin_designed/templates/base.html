@@ -1,4 +1,5 @@
 {% load staticfiles i18n %}<!DOCTYPE html>
+{% load compress %}
 {% url 'public:home' as home_url %}
 {% url 'public:about' as about_url %}
 {% url 'public:donate' as donate_url %}
@@ -43,10 +44,13 @@
     <![endif]-->
 
     {% block css %}
+
+    {% compress css %}
     <!-- Your stuff: Third-party CSS libraries go here -->
     <link href="{% static 'css/foundation.css' %}" rel="stylesheet">
     <!-- This file stores project-specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endcompress %}
 
     {% endblock %}
 
@@ -115,12 +119,12 @@
     <!-- Le javascript -->
     {% block javascript %}
 
+      {% compress js %}
       <!-- Your stuff: Third-party javascript libraries go here -->
-      <script src="{% static 'js/jquery.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
       <!-- place project specific Javascript in this file -->
-
-      <script src="{% static 'js/project.js' %}"></script>
-
+      <script type="text/javascript" src="{% static 'js/project.js' %}"></script>
+      {% endcompress %}
 
     {% endblock javascript %}
   </body>
