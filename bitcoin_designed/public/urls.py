@@ -28,4 +28,9 @@ urlpatterns = [
         view=views.TagListView.as_view(),
         name='tag'
     ),
+    url(
+        regex=r'^donate/$',
+        view = views.donate,
+        name='donate'
+    ),
 ]

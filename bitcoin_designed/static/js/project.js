@@ -19,3 +19,52 @@ Issues with the above approach:
 4. Undocumented: No mention in the documentation, or it's too hard for me to find
 */
 $('.form-group').removeClass('row');
+
+$(document).ready(function(){
+
+    if ($(window).width() >= 640) {
+        toggleDonate();
+
+        $(window).scroll(function(){
+            toggleDonate();
+        });
+
+        $('#donate-copy-button').click(function(){
+            var copyText = $(this).prev();
+            copyText.focus();
+            copyText.select();
+            document.execCommand('copy');
+            copyFeedback($(this).parent().next());
+        });
+
+        $("#donate-qr-code-button").click(function() {
+            $('#qr-code-container').toggle(200);
+        });
+
+        $("#qr-code-close-button").click(function() {
+            $("#qr-code-container").hide(200);
+        });
+
+    }
+    $('#donate-page-copy-button').click(function(){
+        var copyText = $(this).prev();
+        copyText.focus();
+        copyText.select();
+        document.execCommand('copy');
+        copyFeedback($(this).parent().next());
+    });
+});
+
+function copyFeedback(element) {
+    element.show(200).delay(800).hide(200);
+}
+
+function toggleDonate() {
+    var windowScroll = $(window).scrollTop();
+    var targetPosition = $("#menu-list").offset().top;
+    if( windowScroll >= (targetPosition + 200)) {
+        $("#donate-container").show(250);
+    } else {
+        $("#donate-container").hide(250);
+    }
+}

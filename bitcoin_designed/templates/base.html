@@ -1,6 +1,7 @@
 {% load staticfiles i18n %}<!DOCTYPE html>
 {% url 'public:home' as home_url %}
 {% url 'public:about' as about_url %}
+{% url 'public:donate' as donate_url %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -69,6 +70,9 @@
 						<li class="menu-item{% if request.path == about_url %} active-item{% endif %}">
               <a class="menu-link" href="{% url 'public:about' %}">About</a>
             </li>
+            <li class="menu-item{% if request.path == donate_url %} active-item{% endif %}">
+              <a class="menu-link" href="{% url 'public:donate' %}">Donate</a>
+            </li>
 					</ul>
 				</div>
 			</div>
@@ -78,6 +82,29 @@
 
       {% block content %}
       {% endblock content %}
+
+  {% block donate %}
+    <div id="donate-container">
+      <p class="donate-text">Want to help us keep up the work? <br> <span class="donate-text-larger">Donate!</span></p>
+      <div id="donate-info">
+        <input readonly type="text" value="3PG2wChbSp9Hd1rZDNMMXKKiAU96qGhZmy" id="donate-address">
+        <button class="donate-button" id="donate-copy-button">Copy</button>
+        <button class="donate-button" id="donate-qr-code-button"><img id="qr-code-scan" src="{% static 'images/qr-code-scan.svg' %}" alt="show QR code"></button>
+      </div>
+      <p class="donate-feedback">Copied!</p>
+      <div id="qr-code-container">
+        <button id="qr-code-close-button">
+          <img id="qr-code-close-icon" src="{% static 'images/cross.svg' %}" alt="close">
+        </button>
+        <img id="qr-code-image" src="{% static 'images/qr-code-example.png' %}" alt="qr code">
+      </div>
+    </div>
+    <div id="donate-container-mobile">
+      <a class="donate-container-link" href="{% url 'public:donate' %}">Donate
+        <img id="donate-heart-img" src="{% static 'images/heart.svg' %}" alt="">
+      </a>
+    </div>
+  {% endblock donate %}
 
   {% block footer %}
     <footer>
@@ -89,10 +116,10 @@
     {% block javascript %}
 
       <!-- Your stuff: Third-party javascript libraries go here -->
-      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="{% static 'js/jquery.js' %}"></script>
       <!-- place project specific Javascript in this file -->
 
-      {# <script src="{% static 'js/project.js' %}"></script> #}
+      <script src="{% static 'js/project.js' %}"></script>
 
 
     {% endblock javascript %}
