@@ -57,10 +57,14 @@
 
       {# TODO: STYLE THIS RIGHT; only an example for designer #}
       {% if object.infographicsource_set.all %}
-        <p><strong>Sources:</strong></p>
-        {% for infographic_source in object.infographicsource_set.all %}
-        <a href="{{ infographic_source.url }}">{{ infographic_source.title }}</a>
-        {% endfor %}
+        <p id="sources-list-title"><strong>Sources:</strong></p>
+        <ul id="sources-list">
+          {% for infographic_source in object.infographicsource_set.all %}
+            <li class="sources-item">
+              {{ infographic_source.title }}: <a href="{{ infographic_source.url }}" class="sources-link">{{ infographic_source.url }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       {% endif %}
 
       <p class="infographic-date">Original creation date: {{ object.pub_date }}</p>
