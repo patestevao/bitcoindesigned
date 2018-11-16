@@ -1012,6 +1012,21 @@ a:hover {
   margin-bottom: 2em;
 }
 
+#sources-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.2em;
+  margin-bottom: 1.5em;
+}
+
+.sources-item {
+  line-height: 2.2em;
+}
+
+#sources-list-title {
+  margin-bottom: 0em;
+}
+
 @media (min-width: 640px) and (max-width: 1150px) {
   .separate-content-container {
     margin-left: 2em;

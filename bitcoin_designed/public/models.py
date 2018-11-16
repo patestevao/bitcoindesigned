@@ -112,6 +112,30 @@ class InfographicURL(models.Model):
         return "<InfographicURL: %s>" % self.url
 
 
+class InfographicSource(models.Model):
+
+    url = models.URLField(
+            "URL to infographic's source",
+            blank=True,
+            null=True,
+    )
+
+    title = models.CharField(
+        "Title",
+        max_length=140,
+    )
+
+    infographic = models.ForeignKey(
+            Infographic, on_delete=models.CASCADE
+    )
+ 
+    def __str__(self):
+        return self.title
+
+    def __repr__(self):
+        return "<InfographicSource: %s>" % self.url
+   
+
 class Tag(models.Model):
 
     tag = models.CharField(
