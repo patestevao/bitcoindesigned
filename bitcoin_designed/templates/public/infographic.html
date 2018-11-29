@@ -27,14 +27,11 @@
 </div>
 <div class="row align-center">
   <div class="small-12 medium-10 columns">
-    <div class="separate-content-container">
-        {% if object.infographicurl_set.all %}
-        <p>Download in better resolution:</p>
-        {% for infographic_url in object.infographicurl_set.all %}
-        <a class="full-resolution-link" href="{{ infographic_url.url }}">({{ infographic_url.language.name }})</a>
-        {% endfor %}
-        {% endif %}
-      </div>
+    <div class="patreon-button-container">
+      <a href="https://www.patreon.com/patestevao" class="patreon-button">
+        <img class="patreon-image" src="{% static 'images/become_a_patron_button.png' %}" alt="Become a patron">
+      </a>
+    </div>
   </div>
 </div>
 <div class="row align-center">
@@ -55,7 +52,13 @@
         {% endfor %}
       </ul>
 
-      {# TODO: STYLE THIS RIGHT; only an example for designer #}
+      {% if object.infographicurl_set.all %}
+        <p id="full-resolution-title">Download in better resolution:</p>
+        {% for infographic_url in object.infographicurl_set.all %}
+        <a class="full-resolution-link" href="{{ infographic_url.url }}">({{ infographic_url.language.name }})</a>
+        {% endfor %}
+      {% endif %}
+
       {% if object.infographicsource_set.all %}
         <p id="sources-list-title"><strong>Sources:</strong></p>
         <ul id="sources-list">
