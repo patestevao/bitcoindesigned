@@ -835,6 +835,10 @@ a:hover {
   margin-left: 1em;
 }
 
+.donate-page-patreon-section {
+  margin-top: 3em;
+}
+
 @media (max-width: 640px) {
   #donate-container {
     display: none;
