@@ -1010,6 +1010,7 @@ a:hover {
 .separate-content-container {
   margin-top: 2em;
   margin-bottom: 2em;
+  max-width: 100%;
 }
 
 #sources-list {
@@ -1017,6 +1018,8 @@ a:hover {
   padding-left: 0;
   margin-top: 0.2em;
   margin-bottom: 1.5em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .sources-item {
