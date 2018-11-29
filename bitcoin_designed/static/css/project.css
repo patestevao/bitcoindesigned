@@ -841,7 +841,7 @@ a:hover {
 
 @media (max-width: 640px) {
   #donate-container {
-    display: none;
+    display: none !important;
   }
 
   #donate-container-mobile {
