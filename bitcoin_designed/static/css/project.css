@@ -875,9 +875,29 @@ a:hover {
   font-weight: 600;
 }
 
-.author-name {
+.team-member-picture {
+  width: 180px;
+  height: auto;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+}
+
+.team-member {
+  margin-bottom: 4em;
+}
+
+.team-member:last-of-type {
+  margin-bottom: 2em;
+}
+
+.team-member-info {
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+.team-member-name {
   font-size: 1.4em;
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
+  margin-top: 0.8em;
 }
 
 @media (max-width: 640px) {

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="align-center row">
@@ -9,9 +10,9 @@
 <div class="row align-center">
 	<div class="small-12 medium-10 columns">
 		<h3 class="page-subtitle">The project</h3>
-		<p class="about-text">Bitcoin designed is a collection of design resources about Bitcoin related topics.</p>
+		<p class="about-text">Bitcoin Designed is a collection of design resources about Bitcoin and related topics.</p>
 		<p class="about-text">This project was first initiated in 2015 under the name “Bitcoinfographics” at a time when
-			Bitcoin was a very new word to most people. The intention was to make a contribution about this theme that
+			Bitcoin was a very new word to most people. The intention was to make a contribution to this theme that
 			interested me so much at the same time that I wanted to learn and practice illustration and infographic skills.
 			So Marco helped me with the website and remained as my technical advisor to help me create accurate materials.</p>
 		<p class="about-text">At the end of 2017, we decided to bring everything back to life under a new name, logo, and website.
@@ -22,11 +23,29 @@
 		<p class="about-text"><em>Patrícia Estevão</em></p>
 	</div>
 </div>
+<div class="bio-info row align-center">
+	<div class="small-12 medium-10 columns">
+		<h3 class="page-subtitle">The team</h3>
+		<div class="team-member">
+			<img src="{% static 'images/pat.jpg' %}" alt="Patrícia" class="team-member-picture">
+			<h4 class="team-member-name"><a href="//patestevao.com">Patrícia Estevão</a></h4>
+			<p class="about-text team-member-info">Designer and Content Creator</p>
+			<p class="about-text team-member-info">Twitter: <a href="https://twitter.com/patestevao">@patestevao</a></p>
+			<p class="about-text team-member-info">E-mail: <a href="mailto:hello@patestevao.com">hello@patestevao.com</a></p>
+		</div>
+		<div class="team-member">
+			<img src="{% static 'images/marco.jpg' %}" alt="Marco" class="team-member-picture">
+			<h4 class="team-member-name"><a href="//www.marcoagner.org">Marco Agner</a></h4>
+			<p class="about-text team-member-info">Editor, Content Creator, and Developer</p>
+			<p class="about-text team-member-info">Twitter: <a href="https://twitter.com/marcoagner">@marcoagner</a></p>
+		</div>
+	</div>
+</div>
 <div class="row align-center">
 	<div class="small-12 medium-10 columns">
 		<h3 class="page-subtitle">What is paralelo lab?</h3>
 		<p class="about-text"><a href="https://www.paralelolab.com/">paralelo lab</a>
-			is the parent project of bitcoindesigned. There we bring together our
+			is the parent project of Bitcoin Designed. There we bring together our
 			efforts to foster and develop technologies with the potential of
 			decentralizing power and facilitating people’s self-determination (such as Bitcoin).</p>
 	</div>
@@ -40,23 +59,13 @@
 			approaches to the topics, they are not intended and should not be used expecting a profound technical education. For that purpose,
 			there are great resources available online.</p>
 		<p class="about-text">Also, the infographics which are not exclusively technical will carry the perception of facts and opinions of
-			the bitcoindesigned team. You’re welcome to agree with us or not.</p>
+			the Bitcoin Designed team. You’re welcome to agree with us or not.</p>
 	</div>
 </div>
 <div class="row align-center">
 	<div class="small-12 medium-10 columns">
-		<p class="about-text">All the content from bitcoindesigned is registered by Patrícia Estevão under the license
+		<p class="about-text">All the content from Bitcoin Designed is registered by Patrícia Estevão under the license
 		<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY SA 4.0</a>.</p>
-	</div>
-</div>
-<div class="bio-info row align-center">
-	<div class="small-12 medium-10 columns">
-		<h3 class="page-subtitle">The team</h3>
-		<h4 class="author-name"><a href="//patestevao.com">Patrícia Estevão</a></h4>
-		<p class="about-text">Twitter: <a href="https://twitter.com/patestevao">@patestevao</a></p>
-		<p class="about-text">E-mail: <a href="mailto:hello@patestevao.com">hello@patestevao.com</a></p>
-		<h4 class="author-name"><a href="//www.marcoagner.org">Marco Agner</a></h4>
-		<p class="about-text">Twitter: <a href="https://twitter.com/marcoagner">@marcoagner</a></p>
 	</div>
 </div>
 {% endblock content %}
