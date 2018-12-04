@@ -456,6 +456,7 @@ a:hover {
 
 .infographic-tag-list {
   margin-bottom: 1.5em;
+  margin-top: 2em;
 }
 
 .show-all-link {
@@ -834,9 +835,13 @@ a:hover {
   margin-left: 1em;
 }
 
+.donate-page-patreon-section {
+  margin-top: 3em;
+}
+
 @media (max-width: 640px) {
   #donate-container {
-    display: none;
+    display: none !important;
   }
 
   #donate-container-mobile {
@@ -870,9 +875,29 @@ a:hover {
   font-weight: 600;
 }
 
-.author-name {
+.team-member-picture {
+  width: 180px;
+  height: auto;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+}
+
+.team-member {
+  margin-bottom: 4em;
+}
+
+.team-member:last-of-type {
+  margin-bottom: 2em;
+}
+
+.team-member-info {
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+.team-member-name {
   font-size: 1.4em;
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
+  margin-top: 0.8em;
 }
 
 @media (max-width: 640px) {
@@ -983,8 +1008,26 @@ a:hover {
   animation-timing-function: ease-in;
 }
 
-.full-infographic-outer-container {
+.patreon-button-container{
   margin-top: 2em;
+  margin-bottom: 2em;
+  display: block;
+}
+
+.patreon-button {
+  color: #4527A0;
+  font-size: 1.1em;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.patreon-image {
+  width: 200px;
+  height: auto;
+}
+
+.full-infographic-outer-container {
+  /* margin-top: 2em; */
   overflow: scroll;
   width: 100%;
   height: auto;
@@ -1010,6 +1053,7 @@ a:hover {
 .separate-content-container {
   margin-top: 2em;
   margin-bottom: 2em;
+  max-width: 100%;
 }
 
 #sources-list {
@@ -1017,14 +1061,18 @@ a:hover {
   padding-left: 0;
   margin-top: 0.2em;
   margin-bottom: 1.5em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .sources-item {
-  line-height: 2.2em;
+  line-height: 1.7em;
+  margin-top: 1em;
 }
 
 #sources-list-title {
   margin-bottom: 0em;
+  margin-top:2em;
 }
 
 @media (min-width: 640px) and (max-width: 1150px) {
@@ -1046,10 +1094,15 @@ a:hover {
   margin-bottom: 0;
 }
 
+#full-resolution-title {
+  margin-bottom: 0.3em;
+  margin-top: 2em;
+}
+
 .full-resolution-link {
   color: #3acccc;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-right: 0.8em;
   margin-bottom:0.5em;
   display: inline-block;
@@ -1136,8 +1189,13 @@ a:hover {
     margin-top: 1.5em;
   }
 
-  .full-resolution-link {
-    font-size: 1.1em;
+  .sources-item {
+    font-size: 0.9em;
+  }
+
+  .patreon-button-container {
+    margin-bottom: 1.5em;
+    margin-top: 1.8em;
   }
 }
 
