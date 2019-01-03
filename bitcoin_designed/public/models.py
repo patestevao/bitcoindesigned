@@ -86,7 +86,7 @@ class Infographic(models.Model):
         return self.active
 
     class Meta:
-        ordering = ('-pub_date', 'title')
+        ordering = ('-pub_date', '-title')
 
 
 class InfographicURL(models.Model):
