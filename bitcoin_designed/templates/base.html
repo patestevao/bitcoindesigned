@@ -3,7 +3,7 @@
 {% load compress %}
 {% url 'public:home' as home_url %}
 {% url 'public:about' as about_url %}
-{% url 'public:donate' as donate_url %}
+{% url 'public:support' as support_url %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -75,8 +75,8 @@
 						<li class="menu-item{% if request.path == about_url %} active-item{% endif %}">
               <a class="menu-link" href="{% url 'public:about' %}">About</a>
             </li>
-            <li class="menu-item{% if request.path == donate_url %} active-item{% endif %}">
-              <a class="menu-link" href="{% url 'public:donate' %}">Donate</a>
+            <li class="menu-item{% if request.path == support_url %} active-item{% endif %}">
+              <a class="menu-link" href="{% url 'public:support' %}">Support</a>
             </li>
 					</ul>
 				</div>
@@ -88,15 +88,15 @@
       {% block content %}
       {% endblock content %}
 
-  {% block donate %}
-    <div id="donate-container">
-      <p class="donate-text">Want to help us keep up the work? <br> <span class="donate-text-larger">Donate!</span></p>
-      <div id="donate-info">
-        <input readonly type="text" value="3PG2wChbSp9Hd1rZDNMMXKKiAU96qGhZmy" id="donate-address">
-        <button class="donate-button" id="donate-copy-button">Copy</button>
-        <button class="donate-button" id="donate-qr-code-button"><img id="qr-code-scan" src="{% static 'images/qr-code-scan.svg' %}" alt="show QR code"></button>
+  {% block support %}
+    <div id="support-container">
+      <p class="support-text">Want to help us keep up the work? <br> <span class="support-text-larger">Support!</span></p>
+      <div id="support-info">
+        <input readonly type="text" value="3PG2wChbSp9Hd1rZDNMMXKKiAU96qGhZmy" id="support-address">
+        <button class="support-button" id="support-copy-button">Copy</button>
+        <button class="support-button" id="support-qr-code-button"><img id="qr-code-scan" src="{% static 'images/qr-code-scan.svg' %}" alt="show QR code"></button>
       </div>
-      <p class="donate-feedback">Copied!</p>
+      <p class="support-feedback">Copied!</p>
       <div id="qr-code-container">
         <button id="qr-code-close-button">
           <img id="qr-code-close-icon" src="{% static 'images/cross.svg' %}" alt="close">
@@ -104,12 +104,12 @@
         <img id="qr-code-image" src="{% static 'images/qr-code-example.png' %}" alt="qr code">
       </div>
     </div>
-    <div id="donate-container-mobile">
-      <a class="donate-container-link" href="{% url 'public:donate' %}">Donate
-        <img id="donate-heart-img" src="{% static 'images/heart.svg' %}" alt="">
+    <div id="support-container-mobile">
+      <a class="support-container-link" href="{% url 'public:support' %}">Support
+        <img id="support-heart-img" src="{% static 'images/heart.svg' %}" alt="">
       </a>
     </div>
-  {% endblock donate %}
+  {% endblock support %}
 
   {% block footer %}
     <footer>
