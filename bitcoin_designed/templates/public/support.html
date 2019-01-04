@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="align-center row">
+    <div class="small-12 medium-10 columns" id="support-title-container">
+      <h2 class="page-title">Support</h2>
+      <img id="support-title-heart" src="{% static 'images/heart-filled.svg' %}" alt="">
+    </div>
+  </div>
+  <div class="align-center row">
+    <div class="small-12 medium-10 columns">
+      <p>Thank you! This will help us keep up this open work.</p>
+      <div id="support-page-address-container">
+        <input readonly type="text" value="3PG2wChbSp9Hd1rZDNMMXKKiAU96qGhZmy" id="support-page-address">
+        <button id="support-page-copy-button">Copy</button>
+      </div>
+      <p class="support-page-feedback">Copied!</p>
+      <div id="support-page-qr-code-container">
+        <img id="support-page-qr-code" src="{% static 'images/qr-code-example.png' %}" alt="">
+      </div>
+      <div class="support-page-patreon-section">
+        <p>You can also become a patron of our work.</p>
+        <div class="patreon-button-container">
+          <a href="https://www.patreon.com/patestevao" class="patreon-button">
+            <img class="patreon-image" src="{% static 'images/become_a_patron_button.png' %}" alt="Become a patron">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block support %}
+{% endblock support %}

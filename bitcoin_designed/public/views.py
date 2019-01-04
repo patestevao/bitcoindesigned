@@ -78,5 +78,5 @@ def about(request):
 def translations(request):
     return render(request, 'public/translations.html')
 
-def donate(request):
-    return render(request, 'public/donate.html')
+def support(request):
+    return render(request, 'public/support.html')

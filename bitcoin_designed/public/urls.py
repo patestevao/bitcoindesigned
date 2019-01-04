@@ -29,8 +29,8 @@ urlpatterns = [
         name='tag'
     ),
     url(
-        regex=r'^donate/$',
-        view = views.donate,
-        name='donate'
+        regex=r'^support/$',
+        view = views.support,
+        name='support'
     ),
 ]
