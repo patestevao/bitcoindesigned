@@ -105,6 +105,12 @@ a:hover {
   font-weight: 700;
 }
 
+.wrap-text {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+
+}
 /*top section styles*/
 
 #top-div {
