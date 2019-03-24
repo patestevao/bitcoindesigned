@@ -1,12 +1,6 @@
 from django.contrib import admin
 
-from .models import Infographic, Language, InfographicURL, Tag, InfographicSource
-
-
-# Register your models here.
-class InfographicURLAdminInline(admin.TabularInline):
-    model = InfographicURL
-    extra = 0
+from .models import Infographic, Language, Tag, InfographicSource, InfographicContent
 
 
 class InfographicSourceAdminInline(admin.TabularInline):
@@ -14,10 +8,14 @@ class InfographicSourceAdminInline(admin.TabularInline):
     extra = 0
 
 
+class InfographicContentAdminInline(admin.TabularInline):
+    model = InfographicContent
+    extra = 0
+
+
 @admin.register(Infographic)
 class InfographicAdmin(admin.ModelAdmin):
-    inlines = (InfographicURLAdminInline, InfographicSourceAdminInline)
-    pass
+    inlines = (InfographicContentAdminInline, InfographicSourceAdminInline)
 
 
 @admin.register(Language)
@@ -25,8 +23,8 @@ class LanguageAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(InfographicURL)
-class InfographicURLAdmin(admin.ModelAdmin):
+@admin.register(InfographicContent)
+class InfographicContent(admin.ModelAdmin):
     pass
 
 
