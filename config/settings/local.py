@@ -69,3 +69,4 @@ CELERY_ALWAYS_EAGER = True
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
 COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=False)
+AUTH_PASSWORD_VALIDATORS = []
