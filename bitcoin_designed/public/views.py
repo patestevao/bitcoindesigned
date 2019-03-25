@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.http import Http404
 
-from .models import Infographic, Tag
+from .models import Infographic, InfographicContent, Tag, Language
 
 
 class HomeListView(ListView):
@@ -16,6 +16,7 @@ class HomeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeListView, self).get_context_data(**kwargs)
         context['tags'] = Tag.objects.filter(infographic__active=True).distinct()
+        context['languages'] = Language.objects.filter(infographiccontent__infographic__active=True).distinct()
         return context
 
 

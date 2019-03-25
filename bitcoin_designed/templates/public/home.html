@@ -33,18 +33,22 @@
 	</div>
 </div>
 <!-- placeholder for language tag -->
+{% if languages %}
 <div class="row">
 	<div class="small-12 columns">
 		<ul class="search-list" id="languages-list">
+      {% for language in languages %}
 			<li class="languages-item">
 				<p class="languagues-title">Available by language:</p>
 			</li>
 			<li class="languages-item">
-				<a href="" class="languages-tag">English</a>
+        <a href="" class="languages-tag {{ language.code }}">{{ language.name }}</a>
 			</li>
+      {% endfor %}
 		</ul>
 	</div>
 </div>
+{% endif %}
 <!-- end placeholder for language tag -->
 <div class="row">
   {% for infographic in object_list %}
