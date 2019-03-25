@@ -8,22 +8,24 @@ import django.utils.timezone
 
 
 def migrate_infographiccontent(apps, schema_editor):
+    from bitcoin_designed.public.models import Infographic, InfographicContent, Language
+
     db_alias = schema_editor.connection.alias
 
-    infographics = apps.get_model("public", "Infographic").objects.using(db_alias).all()
-    infographic_content = apps.get_model("public", "InfographicContent")
-    english_language = apps.get_model("public", "Language").objects.using(db_alias).filter(code="en").first()
+    old_infographics = apps.get_model("public", "Infographic").objects.using(db_alias).all()
+    english_language = Language.objects.filter(code="en").first()
 
-    for infographic in infographics:
-        hd_url = apps.get_model("public", "InfographicURL").objects.using(db_alias).filter(language=english_language).first()
-        infographic_content = infographic_content(
+    for infographic in old_infographics:
+        hd_url = apps.get_model("public", "InfographicURL").objects.using(db_alias).filter(language__code=english_language.code).first()
+        new_infographic = Infographic.objects.filter(title=infographic.title).first()
+        infographic_content = InfographicContent(
             last_update_date = infographic.last_update_date,
             title = infographic.title,
             description = infographic.description,
             slug = infographic.slug,
             medium_img = infographic.medium_img,
             thumbnail_img = infographic.thumbnail_img,
-            infographic = infographic,
+            infographic = new_infographic,
             language = english_language,
             hd_url = hd_url,
         )
