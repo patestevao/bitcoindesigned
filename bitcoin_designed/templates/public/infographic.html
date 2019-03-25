@@ -45,24 +45,26 @@
   <div class="small-12 columns">
     <div class="separate-content-container">
       <ul class="infographic-tag-list tag-list">
-        {% for tag in tags %}
+        {% for tag in object.infographic.tags.all %}
           <li class="tag-item">
             <a class="infographic-tag" href="{% url 'public:tag' slug=tag.slug %}">{{ tag.tag }}</a>
           </li>
         {% endfor %}
       </ul>
 
-      {% if object.infographicurl_set.all %}
+      {% if object.infographic.infographiccontent_set.all %}
         <p id="full-resolution-title">Download in better resolution:</p>
-        {% for infographic_url in object.infographicurl_set.all %}
-        <a class="full-resolution-link" href="{{ infographic_url.url }}">({{ infographic_url.language.name }})</a>
+        {% for infographiccontent in object.infographic.infographiccontent_set.all %}
+        {% if infographiccontent.hd_url %}
+        <a class="full-resolution-link" href="{{ infographiccontent.hd_url }}">({{ infographiccontent.language.name }})</a>
+        {% endif %}
         {% endfor %}
       {% endif %}
 
-      {% if object.infographicsource_set.all %}
+      {% if object.infographic.infographicsource_set.all %}
         <p id="sources-list-title"><strong>Sources:</strong></p>
         <ul id="sources-list">
-          {% for infographic_source in object.infographicsource_set.all %}
+          {% for infographic_source in object.infographic.infographicsource_set.all %}
             <li class="sources-item">
               {{ infographic_source.title }}: <a href="{{ infographic_source.url }}" class="sources-link">{{ infographic_source.url }}</a>
             </li>

@@ -63,14 +63,14 @@
 		<nav>
 			<div class="row">
 				<div id="nav-first-line" class="small-12 columns">
-					<a href="{% url 'public:home' %}" id="top-home-link">
+          <a href="{% url 'public:home' %}{% if lang %}?lang={{ lang }}{% endif %}" id="top-home-link">
 						<h1><img id="logo" src="{% static 'images/logo.svg' %}" alt="bitcoin designed"></h1>
 					</a>
 				</div>
 				<div id="nav-second-line" class="small-12 columns">
 					<ul id="menu-list">
 						<li class="menu-item{% if request.path == home_url %} active-item{% endif %}">
-              <a class="menu-link" href="{% url 'public:home' %}">Home</a>
+              <a class="menu-link" href="{% url 'public:home' %}{% if lang %}?lang={{ lang }}{% endif %}">Home</a>
             </li>
 						<li class="menu-item{% if request.path == about_url %} active-item{% endif %}">
               <a class="menu-link" href="{% url 'public:about' %}">About</a>

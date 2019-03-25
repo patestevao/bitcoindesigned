@@ -9,15 +9,31 @@
 			<li class="tag-item">
         <p class="tag-title">Showing infographics for tag</p>
 			</li>
-			<li class="tag-item">
+			<li id="tags" class="tag-item">
         <span class="tag-active">{{ tag }}</span>
 			</li>
 			<li class="tag-item">
-				<a href="{% url 'public:home' %}" class="show-all-link">Show all &#8617;</a>
+        <a href="{% url 'public:home' %}?lang={{ lang }}#tags" class="show-all-link">Show all &#8617;</a>
 			</li>
 		</ul>
 	</div>
 </div>
+{% if languages %}
+<div class="row">
+	<div class="small-12 columns">
+		<ul class="search-list" id="languages-list">
+			<li class="languages-item">
+				<p class="languagues-title">Available by language:</p>
+			</li>
+      {% for language in languages %}
+			<li class="languages-item">
+        <a href="{{ request.path }}?lang={{ language.code }}#tags" class="languages-tag{% if language.code == lang %} language-selected{% endif %}">{{ language.name }}</a>
+			</li>
+      {% endfor %}
+		</ul>
+	</div>
+</div>
+{% endif %}
 <div class="row">
   {% for infographic in object_list %}
 	<div class="infographic-container small-12 medium-6 large-4 columns">
@@ -29,7 +45,7 @@
 		</div>
 		<div class="title-container">
       <h3 class="infographic-sample-title">{{ infographic.title }}</h3>
-      <p class="infographic-sample-date">{{ infographic.pub_date }}</p>
+      <p class="infographic-sample-date">{{ infographic.infographic.pub_date }}</p>
 		</div>
 	</div>
   {% endfor %}

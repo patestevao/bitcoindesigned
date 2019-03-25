@@ -46,17 +46,13 @@ class Infographic(models.Model):
         default=False,
     )
     title = models.CharField(
-        "Title (identifier)",
+        "Identifier",
         max_length=140,
         unique=True,
     )
     sponsored = models.BooleanField(
         "Sponsored",
         default=False,
-    )
-    slug = models.SlugField(
-        "Slug",
-        unique=True,
     )
     tags = models.ManyToManyField('Tag')
 
@@ -69,7 +65,6 @@ class Infographic(models.Model):
     def save(self, *args, **kwargs):
         self.last_update_date = timezone.now()
         super(Infographic, self).save(*args, **kwargs)
-
 
 
 class InfographicContent(models.Model):
@@ -85,7 +80,7 @@ class InfographicContent(models.Model):
         default=timezone.now,
     )
     title = models.CharField(
-        "Title (translated)",
+        "Title",
         max_length=140,
         unique=True,
     )
@@ -121,8 +116,8 @@ class InfographicContent(models.Model):
         self.last_update_date = timezone.now()
         super(InfographicContent, self).save(*args, **kwargs)
 
-    # class Meta:
-    #     ordering = ('-pub_date', '-title')
+    class Meta:
+        ordering = ('-infographic__pub_date', '-title')
 
 
 class InfographicSource(models.Model):
