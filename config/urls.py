@@ -11,7 +11,7 @@ urlpatterns = [
     url(settings.ADMIN_URL, admin.site.urls),
 
     # Your stuff: custom urls includes go here
-    url(r'^', include('bitcoin_designed.public.urls', namespace='public')),
+    url(r'^', include(('bitcoin_designed.public.urls', 'public'), namespace='public')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
