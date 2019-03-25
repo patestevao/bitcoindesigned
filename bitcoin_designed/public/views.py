@@ -2,62 +2,63 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.http import Http404
 
-from .models import Infographic, Tag
+from .models import InfographicContent, Tag, Language
 
 
 class HomeListView(ListView):
-    model = Infographic
+    model = InfographicContent
     template_name = 'public/home.html'
 
     def get_queryset(self, **kwargs):
-        queryset = Infographic.objects.filter(active=True).all()
+        language_code = self.request.GET.get('lang', 'en')
+        queryset = InfographicContent.objects.filter(infographic__active=True, language__code=language_code).all()
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(HomeListView, self).get_context_data(**kwargs)
-        context['tags'] = Tag.objects.filter(infographic__active=True).distinct()
+        language_code = self.request.GET.get('lang', 'en')
+        context["lang"] = language_code
+        context['tags'] = Tag.objects.filter(infographic__active=True, infographic__infographiccontent__language__code=language_code).distinct()
+        context['languages'] = Language.objects.filter(infographiccontent__infographic__active=True).distinct()
         return context
 
 
 class InfographicDetailView(DetailView):
-    model = Infographic
+    model = InfographicContent
     slug_field = 'slug'
     template_name = 'public/infographic.html'
 
     def get_context_data(self, **kwargs):
         slug = self.kwargs['slug']
         context = super(InfographicDetailView, self).get_context_data(**kwargs)
-        this_infographic = Infographic.objects.filter(slug=slug).first()
-        tags = this_infographic.tags.all()
+        this_infographic = InfographicContent.objects.filter(slug=slug).first()
+        language_code = self.request.GET.get('lang', 'en')
 
-        try:
-            next_infographic = this_infographic.get_next_by_pub_date(
-                active=True
-            )
-        except Infographic.DoesNotExist:
-            next_infographic = None
-        try:
-            prev_infographic = this_infographic.get_previous_by_pub_date(
-                active=True
-            )
-        except Infographic.DoesNotExist:
-            prev_infographic = None
+        context['next_infographic'] = InfographicContent.objects.filter(
+                infographic__active = True,
+                infographic__pub_date__gt = this_infographic.infographic.pub_date,
+                language__code = this_infographic.language.code
+        ).first()
 
-        context['next_infographic'] = next_infographic
-        context['prev_infographic'] = prev_infographic
-        context['tags'] = tags
+        context['prev_infographic'] = InfographicContent.objects.filter(
+                infographic__active = True,
+                infographic__pub_date__lt = this_infographic.infographic.pub_date,
+                language__code = this_infographic.language.code
+        ).first()
 
         return context
 
 
 class TagListView(ListView):
-    model = Infographic
+    model = InfographicContent
     template_name = 'public/tag.html'
 
     def get_queryset(self, **kwargs):
         tag_slug = self.kwargs['slug']
-        queryset = Infographic.objects.filter(active=True,
-                                              tags__slug=tag_slug).all()
+        language_code = self.request.GET.get('lang', 'en')
+        queryset = InfographicContent.objects.filter(
+                infographic__active=True, infographic__tags__slug=tag_slug, language__code=language_code
+        ).all()
         if queryset:
             return queryset
         raise Http404
@@ -67,7 +68,13 @@ class TagListView(ListView):
         tag = Tag.objects.filter(slug=tag_slug).first()
 
         context = super(TagListView, self).get_context_data(**kwargs)
+        language_code = self.request.GET.get('lang', 'en')
+        context["lang"] = language_code
         context['tag'] = tag
+        context['languages'] = Language.objects.filter(
+                infographiccontent__infographic__active=True,
+                infographiccontent__infographic__tags=tag
+        ).distinct()
 
         return context
 

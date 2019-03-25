@@ -411,24 +411,28 @@ a:hover {
   font-size: 1.2em;
 }
 
-.tag-list {
+.search-list, .tag-list {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	text-align: left;
-	margin-top: 4em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
-.tag-item {
+.tag-list {
+  margin-top: 4em;
+}
+
+.languages-item, .tag-item {
 	display: inline-block;
 	margin-right: 0.6em;
-  margin-top: 0.5em;
+    margin-top: 0.5em;
 }
 
-.tag-title {
+.languagues-title, .tag-title {
   font-weight: 700;
   font-size: 1.2em;
+  margin-bottom: 0.5em;
 }
 
 .tag {
@@ -438,6 +442,24 @@ a:hover {
 	border-radius: 2px;
 	color: #12A4A4;
   display: block;
+}
+
+.languages-tag {
+  padding: 0.5em 0.8em;
+  background-color: rgba(199, 204, 251, 0.5);
+  background: linear-gradient(to left, rgba(199, 204, 251, 0.5), rgba(199,255,253, 0.6));
+  border-radius: 2px;
+  color: #444;
+  display: block;
+}
+
+.languages-tag:hover {
+  color: #4527A0;
+  background: linear-gradient(to left, rgba(199, 204, 251, 1), rgba(199, 255, 253, 1));
+}
+
+.language-selected {
+    background: rgba(199, 204, 251, 0.6);
 }
 
 .tag-active {

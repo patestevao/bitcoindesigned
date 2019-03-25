@@ -25,13 +25,29 @@
 				<p class="tag-title">What are you looking for?</p>
 			</li>
       {% for tag in tags %}
-			<li class="tag-item">
-        <a href="{% url 'public:tag' slug=tag.slug %}" class="tag">{{ tag.tag }}</a>
+			<li id="tags" class="tag-item">
+        <a href="{% url 'public:tag' slug=tag.slug %}?lang={{ lang }}#tags" class="tag">{{ tag.tag }}</a>
 			</li>
       {% endfor %}
 		</ul>
 	</div>
 </div>
+{% if languages %}
+<div class="row">
+	<div class="small-12 columns">
+		<ul class="search-list" id="languages-list">
+			<li class="languages-item">
+				<p class="languagues-title">Available by language:</p>
+			</li>
+      {% for language in languages %}
+			<li class="languages-item">
+        <a href="{% url 'public:home' %}?lang={{ language.code }}#tags" class="languages-tag{% if language.code == lang %} language-selected{% endif %}">{{ language.name }}</a>
+			</li>
+      {% endfor %}
+		</ul>
+	</div>
+</div>
+{% endif %}
 <div class="row">
   {% for infographic in object_list %}
 	<div class="infographic-container small-12 medium-6 large-4 columns">
@@ -45,7 +61,7 @@
 			<a href="{% url 'public:infographic_detail' slug=infographic.slug %}" class="infographic-sample-title-link">
 				<h3 class="infographic-sample-title">{{ infographic.title }}</h3>
 			</a>
-      <p class="infographic-sample-date">{{ infographic.pub_date }}</p>
+      <p class="infographic-sample-date">{{ infographic.infographic.pub_date }}</p>
 		</div>
 	</div>
   {% endfor %}

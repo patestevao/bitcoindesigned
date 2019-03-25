@@ -9,6 +9,7 @@ class Language(models.Model):
         "Language's name",
         max_length=70,
         blank=True,
+        unique=True,
         null=True,
     )
 
@@ -16,6 +17,7 @@ class Language(models.Model):
         "Language's code (5 characters max.)",
         max_length=5,
         blank=True,
+        unique=True,
         null=True,
     )
 
@@ -44,31 +46,13 @@ class Infographic(models.Model):
         default=False,
     )
     title = models.CharField(
-        "Title",
+        "Identifier",
         max_length=140,
-    )
-    description = models.CharField(
-        "Description",
-        max_length=140,
+        unique=True,
     )
     sponsored = models.BooleanField(
         "Sponsored",
         default=False,
-    )
-    ad = models.BooleanField(
-        "Ad",
-        default=False,
-    )
-    slug = models.SlugField(
-        "Slug",
-    )
-    medium_img = models.ImageField(
-        "Medium image",
-        max_length=500,
-    )
-    thumbnail_img = models.ImageField(
-        "Thumbnail",
-        max_length=500,
     )
     tags = models.ManyToManyField('Tag')
 
@@ -82,34 +66,58 @@ class Infographic(models.Model):
         self.last_update_date = timezone.now()
         super(Infographic, self).save(*args, **kwargs)
 
-    def is_active(self):
-        return self.active
 
-    class Meta:
-        ordering = ('-pub_date', '-title')
+class InfographicContent(models.Model):
 
-
-class InfographicURL(models.Model):
-
-    url = models.URLField(
+    infographic = models.ForeignKey(
+            Infographic, on_delete=models.CASCADE
+    )
+    language = models.ForeignKey(
+            Language, on_delete=models.CASCADE
+    )
+    last_update_date = models.DateField(
+        "Last update date",
+        default=timezone.now,
+    )
+    title = models.CharField(
+        "Title",
+        max_length=140,
+        unique=True,
+    )
+    description = models.CharField(
+        "Description",
+        max_length=140,
+    )
+    slug = models.SlugField(
+        "Slug",
+        unique=True,
+    )
+    medium_img = models.ImageField(
+        "Medium image",
+        max_length=500,
+    )
+    thumbnail_img = models.ImageField(
+        "Thumbnail",
+        max_length=500,
+    )
+    hd_url = models.URLField(
         "URL to high definition infographic",
         blank=True,
         null=True,
     )
 
-    language = models.ForeignKey(
-        Language, on_delete=models.CASCADE
-    )
-
-    infographic = models.ForeignKey(
-        Infographic, on_delete=models.CASCADE
-    )
-
     def __str__(self):
-        return self.url
+        return self.title
 
     def __repr__(self):
-        return "<InfographicURL: %s>" % self.url
+        return "<InfographicContent: %s>" % self.title
+
+    def save(self, *args, **kwargs):
+        self.last_update_date = timezone.now()
+        super(InfographicContent, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ('-infographic__pub_date', '-title')
 
 
 class InfographicSource(models.Model):
