@@ -40,7 +40,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Bitcoin designed'
-copyright = """2017, txplab"""
+copyright = """2017, Marco Agner"""
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -185,7 +185,7 @@ latex_documents = [
     ('index',
      'bitcoin_designed.tex',
      'Bitcoin designed Documentation',
-     """txplab""", 'manual'),
+     """Marco Agner""", 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -215,7 +215,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'bitcoin_designed', 'Bitcoin designed Documentation',
-     ["""txplab"""], 1)
+     ["""Marco Agner"""], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -229,7 +229,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     ('index', 'bitcoin_designed', 'Bitcoin designed Documentation',
-     """txplab""", 'Bitcoin designed',
+     """Marco Agner""", 'Bitcoin designed',
      """Design works and resources about Bitcoin... for Bitcoin.""", 'Miscellaneous'),
 ]
 

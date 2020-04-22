@@ -95,7 +95,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""txplab""", 'contact@txplab.com'),
+    ("""marcoagner""", 'bitcoindesigned@agner.io'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -107,7 +107,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'data-dev.sqlite'
+        'NAME': 'data.sqlite'
     }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True

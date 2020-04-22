@@ -8,7 +8,8 @@ from django.views import defaults as default_views
 urlpatterns = [
 
     # Django Admin, use {% url 'admin:index' %}
-    url(settings.ADMIN_URL, admin.site.urls),
+    # url(settings.ADMIN_URL, admin.site.urls),
+    # deactivated admin page; unnecessary for now.
 
     # Your stuff: custom urls includes go here
     url(r'^', include(('bitcoin_designed.public.urls', 'public'), namespace='public')),
