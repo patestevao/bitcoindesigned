@@ -20,7 +20,7 @@ django-braces==1.14.0
 django-model-utils==4.0.0
 
 # Images
-Pillow==7.1.1
+Pillow==8.2.0
 
 # Password storage
 argon2-cffi==19.2.0
